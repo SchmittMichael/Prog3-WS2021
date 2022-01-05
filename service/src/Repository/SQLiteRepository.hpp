@@ -17,6 +17,6 @@ class SQLiteRepository : public RepositoryIf {
 
     static std::string const databaseFile;
 };
-
+// test
 } // namespace Repository
 } // namespace Reminder
