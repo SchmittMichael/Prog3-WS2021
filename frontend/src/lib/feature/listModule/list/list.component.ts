@@ -24,8 +24,7 @@ export class ListComponent{
   }
 
   editValue(event: any): void {
-    this.listObject.setTitle(event.target.value);
+    this.listObject.setListTitle(event.target.value);
   }
-
 
 }

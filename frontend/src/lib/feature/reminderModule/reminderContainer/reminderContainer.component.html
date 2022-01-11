@@ -1,0 +1,31 @@
+<div class="reminderContainer">
+  <div id="header">
+    <div id="namebox">
+      <p>{{showName()}}</p>
+    </div>
+    <div id="remindCount">
+      <p>{{showCount()}}</p>
+    </div>
+  </div>
+
+  <div id="body">
+    <ul>
+      <li *ngFor="let reminder of rcObject.getReminders()">
+        <reminder
+          (clickDeleteEvent)="deleteReminder($event)"
+          [rcObject]="reminder"
+          [selectedOnCreate]="reminder == selectedObject"
+          color="{{ this.color }}"
+        ></reminder>
+      </li>
+     <!-- <li>
+        <createButton
+          (newClickEvent)="createNewReminder($event)"
+          backgroundColor="#ffffff"
+          borderRadius="5px"
+        ></createButton>
+      </li>-->
+    </ul>
+  </div>
+</div>
+

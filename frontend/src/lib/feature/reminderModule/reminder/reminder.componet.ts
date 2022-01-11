@@ -45,7 +45,11 @@ export class ReminderComponent implements AfterViewInit{
     this.clickDeleteEvent.emit(this.reminderObject.getID());
   }
 
-  editValue(event: any): void {
+  editName(event: any): void {
     this.reminderObject.setTitle(event.target.value);
+  }
+
+  editDate(event: any): void {
+    
   }
 }

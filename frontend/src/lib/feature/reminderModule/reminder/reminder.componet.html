@@ -5,6 +5,7 @@
     value = "{{ reminderObject.getTitle()}}"
     value = "{{reminderObject.getDate()}} "
 
-    (change)="editValue($event)"
+    (change)="editDate($event)"
+    (change)="editName($event)"
   />
 </div>

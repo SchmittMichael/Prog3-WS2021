@@ -1,0 +1,27 @@
+<div class="listContainer">
+    <div class="button">
+      <listButton (newClickEvent)="createNewList($event)"></listButton>
+    </div>
+    <div class="header">
+      <h1>Meine Erinnerungen</h1>
+    <div id="today" title="Today">
+      <p>Today</p>
+    </div>
+    <div id="Flagged">
+      <p>Flagged</p>
+    </div>
+
+
+    <div id="body">
+      <ul>
+        <li *ngFor="let list of lcObject.getLists()">
+          <list
+            (clickDeleteEvent)="deleteList($event)"
+            [lcObject]="list"
+            [selectedOnCreate]="list == selectedObject"
+            color="{{ this.color }}"
+          ></list>
+        </li>
+      </ul>
+    </div>
+  </div>

@@ -1,29 +1,30 @@
-import { reminderContainer } from "./reminderContainer";
+import { reminderContainer } from './reminderContainer';
 export class List {
-public name: String;
-public remindcount: number;
-static listcounter: number = 1;
-public rC: reminderContainer;
+  private id: number;
+  public title: String;
+  public remindcount: number;
+  static listcounter: number = 1;
+  public rC: reminderContainer;
 
-constructor(name: String){
-this.name = name;
-this.remindcount = 0;   // set number of Reminders default 0
-List.listcounter ++ ;  // set  number for default name
-this.rC = new reminderContainer(0,name);
-}
+  constructor(id: number, name: String) {
+    this.id = id;
+    this.title = name;
+    this.remindcount = 0; // set number of Reminders default 0
+    List.listcounter++; // set  number for default name
+    this.rC = new reminderContainer(0, name);
 
-getID(): number{
-  return List.listcounter;
-}
+    console.log("Neue liste erstellt!");
+  }
 
-getListTitle(): String{
-  return this.name;
-}
+  getID(): number {
+    return List.listcounter;
+  }
 
-setTitle(title: String): void{
-  this.name = title;
-}
+  getListTitle(): String {
+    return this.title;
+  }
 
-
-
+  setListTitle(title: String): void {
+    this.title = title;
+  }
 }

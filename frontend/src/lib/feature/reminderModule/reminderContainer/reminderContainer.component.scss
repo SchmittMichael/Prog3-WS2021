@@ -1,0 +1,61 @@
+.reminderContainer {
+  position: relative;
+  height: auto;
+  min-height: 160px;
+  width: 100%;
+  display: block;
+  background-color: #ff0000;
+  font-weight: 600;
+  overflow: auto;
+  border-radius: 10px;
+  transition: box-shadow 0.1s;
+  overflow-x: hidden;
+}
+
+.reminderContainer #header {
+  height: 56px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-left: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.6em;
+  font-weight: 700;
+  width: 80%;
+  color: white;
+}
+
+
+.reminderContainer #header #namebox{
+
+}
+
+.reminderContainer #header #remindCount{
+  
+}
+
+.reminderContainer #body {
+  position: relative;
+  overflow: auto;
+  @media screen and (orientation: landscape) and (max-device-width: 1024px) {
+    max-height: 50vh;
+  }
+  @media not screen and (orientation: landscape) and (max-device-width: 1024px) {
+    max-height: 75vh;
+  }
+}
+
+.reminderContainer #body ul li {
+  margin-bottom: 12px;
+  display: block;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.reminderContainer #body ul {
+  margin-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
