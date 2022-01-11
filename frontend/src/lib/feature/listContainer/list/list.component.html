@@ -1,0 +1,8 @@
+<div class="list" (mouseenter)="hoverEvent()" (mouseleave)="mouseOutEvent()">
+  <input
+    #myInput
+    type="text"
+    value="{{ listObject.getListTitle() }}"
+    (change)="editValue($event)"
+  />
+</div>

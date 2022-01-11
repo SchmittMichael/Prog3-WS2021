@@ -1,7 +1,7 @@
 import {
   Component, Input
 } from '@angular/core';
-import { List } from 'src/lib/data-access/list';
+import { List } from '../../../data-access/list';
 
 @Component({
   selector: 'list',
