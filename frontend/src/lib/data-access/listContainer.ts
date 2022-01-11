@@ -1,6 +1,6 @@
 import { List } from "./list";
 
-export class listContainer{
+export class ListContainer{
   public lists: List[] = [];
 
 
