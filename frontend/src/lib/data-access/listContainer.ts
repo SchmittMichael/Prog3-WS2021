@@ -4,6 +4,4 @@ export class listContainer{
   public lists: List[] = [];
 
 
-
-
 }
