@@ -7,7 +7,7 @@ export class reminderContainer {
   private name: String;
   private reminderCounter: number;
 
-  
+
 
   constructor(id: number, name: String){
     this.id = id;
@@ -16,8 +16,8 @@ export class reminderContainer {
 
   }
 
-  addReminder(date: Date, name: String): Reminder{
-    let reminder: Reminder = new Reminder (this.reminderCounter, date, name);
+  addReminder(name: String): Reminder{
+    let reminder: Reminder = new Reminder (this.reminderCounter, name);
     this.reminders.push(reminder);
     return reminder;
   }
