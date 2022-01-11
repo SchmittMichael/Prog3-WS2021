@@ -2,7 +2,9 @@
   <input
     #myInput
     type="text"
-    value="{{ reminderObject.getTitle() }}"
+    value = "{{ reminderObject.getTitle()}}"
+    value = "{{reminderObject.getDate()}} "
+
     (change)="editValue($event)"
   />
 </div>
