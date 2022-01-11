@@ -23,4 +23,9 @@ export class Reminder {
   setTiile(newName: String): void{
     this.title = newName;
   }
+
+  setDate(newDate: Date):void{
+    this.date=newDate;
+  }
+  //git commit geht nicht
 }
