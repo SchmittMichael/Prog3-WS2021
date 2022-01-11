@@ -20,7 +20,7 @@ export class Reminder {
     return this.title;
   }
 
-  setTiile(newName: String): void{
+  setTitle(newName: String): void{
     this.title = newName;
   }
 

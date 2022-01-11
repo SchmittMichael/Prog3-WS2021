@@ -1,8 +1,8 @@
-.item {
+.reminder {
   position: relative;
   width: 100%;
   height: 70px;
-  background-color: hsl(187, 100%, 54%);
+  background-color: hsl(#444444);
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -14,7 +14,7 @@
   }
 }
 
-.item #symbol {
+.reminder #symbol {
   top: 0px;
   left: 0px;
   height: 100%;
@@ -22,7 +22,7 @@
   position: relative;
 }
 
-.item #symbol #box {
+.reminder #symbol #box {
   top: 0px;
   left: 0px;
   height: 100%;
@@ -32,7 +32,7 @@
   border-radius: 5px 0px 0px 5px;
 }
 
-.item #symbol #kreis {
+.reminder #symbol #kreis {
   top: 45%;
   left: 45%;
   width: 7px;
@@ -43,11 +43,11 @@
   z-index: 2;
 }
 
-.item:hover {
+.reminder:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.item input {
+.reminder input {
   margin-left: 13px;
   background: transparent;
   border: none;

@@ -5,7 +5,7 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { Reminder } from '../../../data-access/reminder';
 
@@ -46,6 +46,6 @@ export class ReminderComponent implements AfterViewInit{
   }
 
   editValue(event: any): void {
-    this.reminderObject.setTiile(event.target.value);
+    this.reminderObject.setTitle(event.target.value);
   }
 }
