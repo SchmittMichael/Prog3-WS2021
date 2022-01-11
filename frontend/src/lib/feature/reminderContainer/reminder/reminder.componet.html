@@ -1,0 +1,8 @@
+<div class="item" (mouseenter)="hoverEvent()" (mouseleave)="mouseOutEvent()">
+  <input
+    #myInput
+    type="text"
+    value="{{ reminderObject.getTitle() }}"
+    (change)="editValue($event)"
+  />
+</div>
