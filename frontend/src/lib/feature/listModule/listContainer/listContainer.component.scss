@@ -1,4 +1,12 @@
 .listContainer {
+  left: 0.5%;
+  top: 1%;
+  bottom: 1%; // trying design optimation
+
+  //scrollfix
+  overflow: hidden;
+  position: fixed;
+
   position: relative;
   width: 25%;
   height: 100%;
@@ -9,56 +17,51 @@
   margin-bottom: 10px;
 }
 
-  .listContainer .header {
+.listContainer .header {
+  height: 56px;
+  width: 25;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
 
-    height: 56px;
-    width: 25;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
+.listContainer .header #Flagged {
+  width: 25%;
+  border: 1px solid;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+}
+
+.listContainer .header #today {
+  width: 25%;
+  border: 1px solid;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+}
+
+.listContainer #body {
+  position: relative;
+  overflow: auto;
+  @media screen and (orientation: landscape) and (max-device-width: 1024px) {
+    max-height: 50vh;
   }
-
-  .listContainer .header #Flagged{
-    width: 25%;
-    border: 1px solid;
-    border-radius: 3px;
-    display: inline-block;
-    margin: 10px;
-    padding: 5px;
-
+  @media not screen and (orientation: landscape) and (max-device-width: 1024px) {
+    max-height: 75vh;
   }
+}
 
-  .listContainer .header #today{
+.listContainer #body ul {
+  margin-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
-    width: 25%;
-    border: 1px solid;
-    border-radius: 3px;
-    display: inline-block;
-    margin: 10px;
-    padding: 5px;
-  }
-
-  .listContainer #body {
-
-    position: relative;
-    overflow: auto;
-    @media screen and (orientation: landscape) and (max-device-width: 1024px) {
-      max-height: 50vh;
-    }
-    @media not screen and (orientation: landscape) and (max-device-width: 1024px) {
-      max-height: 75vh;
-    }
-  }
-
-  .listContainer #body ul {
-    margin-top: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .listContainer #body ul li {
-    margin-bottom: 12px;
-    display: block;
-    width: 100%;
-    margin-right: 10px;
-  }
-
+.listContainer #body ul li {
+  margin-bottom: 12px;
+  display: block;
+  width: 100%;
+  margin-right: 10px;
+}
