@@ -8,10 +8,10 @@ import { ListComponent } from '../lib/feature/listModule/list/list.component';
 import { ListContainerComponent } from '../lib/feature/listModule/listContainer/listContainer.component';
 import { ReminderComponent } from '../lib/feature/reminderModule/reminder/reminder.componet';
 import { reminderContainerComponent } from '../lib/feature/reminderModule/reminderContainer/reminderContainer.component';
-import { listButtonComponent } from '../lib/feature/listModule/listButton/listButton.component';
+import { addButtonComponent } from 'src/lib/ui/addButton/addButton.component';
 
 @NgModule({
-  declarations: [AppComponent, ListComponent, listButtonComponent, ListContainerComponent, ReminderComponent, reminderContainerComponent],
+  declarations: [AppComponent, ListComponent, addButtonComponent, ListContainerComponent, ReminderComponent, reminderContainerComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

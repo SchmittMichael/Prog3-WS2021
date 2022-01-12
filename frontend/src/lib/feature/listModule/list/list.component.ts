@@ -19,6 +19,7 @@ export class ListComponent implements AfterViewInit {
   @Input() selectedOnCreate: boolean;
   @Input() color: string = '#000000';
   @Output() clickDeleteEvent = new EventEmitter<number>();
+  @Output() showRemConEvent = new EventEmitter<number>();
 
   @ViewChild('myInput') myInput: ElementRef;
 
@@ -32,10 +33,16 @@ export class ListComponent implements AfterViewInit {
   }
 
   clickEvent(): void {
-    this.clickDeleteEvent.emit(this.listObject.getID());
+    //this.clickDeleteEvent.emit(this.listObject.getID());
+    this.showRemConEvent.emit(this.listObject.getID());
   }
 
   editTitle(event: any): void {
     this.listObject.setTitle(event.target.value);
+  }
+
+  showRemCon(): void {
+    console.log("click by "+this.listObject.getTitle())
+    this.showRemConEvent.emit(this.listObject.getID());
   }
 }

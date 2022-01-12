@@ -1,14 +1,11 @@
 <div class="reminderContainer">
+ <div id="button">
+      <addButton>(newClickEvent)="createNewReminder($event)"></addButton>
+    </div>
+
   <div class="header">
-    <div id="namebox">
-      <p>{{showName()}}</p>
-    </div>
-    <div id="remindCount">
-      <p>{{showCount()}}</p>
-    </div>
-    <div id="Button">
-      <listButton>(newClickEvent)="createNewReminder($event)"></listButton>
-    </div>
+    <div id="namebox"> {{showName()}} </div>
+    <div id="remindCount"> {{showCount()}} </div>
   </div>
 
   <div id="body">

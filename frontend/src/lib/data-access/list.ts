@@ -20,10 +20,12 @@ export class List {
   }
 
   getTitle(): string {
+
     return this.title;
   }
 
   getID(): number {
     return this.id;
   }
+
 }

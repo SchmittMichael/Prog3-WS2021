@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'listButton',
-  templateUrl: './listButton.component.html',
-  styleUrls: ['./listButton.component.scss'],
+  selector: 'addButton',
+  templateUrl: './addButton.component.html',
+  styleUrls: ['./addButton.component.scss'],
 })
-export class listButtonComponent {
+export class addButtonComponent {
   @Input() backgroundColor: string = '#d6d6d6';
   @Input() borderRadius: string = '15px';
   @Output() newClickEvent = new EventEmitter<any>();
