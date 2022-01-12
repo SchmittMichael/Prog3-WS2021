@@ -1,27 +1,26 @@
 .listButton {
-  position:absolute;
+  position: absolute;
   transition: box-shadow 0.1s;
   margin: 0;
 
   position: absolute;
   top: 95%;
   left: 5%;
-
   transform: translate(-50%, -50%);
 }
 
-
-
-
 .symbol {
+  font-family: 'Courier New', Courier, monospace;
   padding: 0;
   position: relative;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-
 }
 
 .listButton:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  // box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  color: #535050;
+  // box-shadow: 0 0 20px black, 20px 15px 30px yellow, -20px 15px 30px lime,
+  //  -20px -15px 30px blue, 20px -15px 30px red;
 }
