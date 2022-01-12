@@ -18,8 +18,6 @@ import { Reminder } from '../../../data-access/reminder';
 export class ReminderComponent implements AfterViewInit{
   @Input() reminderObject: Reminder;
   @Input() selectedOnCreate: boolean;
-  @Input() color: string = '#000000';
-  @Input()
   @Output() clickDeleteEvent = new EventEmitter<number>();
 
   @ViewChild('myInput') myInput: ElementRef;

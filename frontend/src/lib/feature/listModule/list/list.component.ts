@@ -17,24 +17,21 @@ import { List } from '../../../data-access/list';
 export class ListComponent implements AfterViewInit {
   @Input() listObject: List;
   @Input() selectedOnCreate: boolean;
-  @Input() color: string = '#000000';
   @Output() clickDeleteEvent = new EventEmitter<number>();
-  @Output() showRemConEvent = new EventEmitter<number>();
 
   @ViewChild('myInput') myInput: ElementRef;
 
   elementRef: ElementRef;
+  showContainer: boolean;
 
   ngAfterViewInit(): void {
     if (this.selectedOnCreate) {
-      console.log("In fokus")
       this.myInput.nativeElement.focus();
     }
   }
 
   clickEvent(): void {
     //this.clickDeleteEvent.emit(this.listObject.getID());
-    this.showRemConEvent.emit(this.listObject.getID());
   }
 
   editTitle(event: any): void {
@@ -42,7 +39,6 @@ export class ListComponent implements AfterViewInit {
   }
 
   showRemCon(): void {
-    console.log("click by "+this.listObject.getTitle())
-    this.showRemConEvent.emit(this.listObject.getID());
+    this.showContainer = true;
   }
 }

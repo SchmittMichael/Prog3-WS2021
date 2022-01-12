@@ -10,17 +10,18 @@ export class List {
     this.remCon = new reminderContainer(id, title);
   }
 
-  setTitle(newValue: string): void {
+  setTitle(newTitle: string): void {
     console.log("Tile updated.");
-    this.title = newValue;
+    this.title = newTitle;
+    this.remCon.setName(newTitle);
   }
 
-  getRemcom(): reminderContainer{
+
+  getRemCon(): reminderContainer{
     return this.remCon;
   }
 
   getTitle(): string {
-
     return this.title;
   }
 

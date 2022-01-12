@@ -1,24 +1,20 @@
-import { Reminder } from "./reminder";
+import { Reminder } from './reminder';
 
 export class reminderContainer {
-
   private id: number;
   public reminders: Reminder[] = [];
   private name: string;
   private reminderCounter: number;
 
-
-
-  constructor(id: number, name: string){
+  constructor(id: number, name: string) {
     this.id = id;
     this.name = name;
     this.reminderCounter = 0;
-    console.log("RerminderContainer erstellt: "+name);
-
+    console.log('RerminderContainer erstellt: ' + name);
   }
 
-  addReminder(): Reminder{
-    let reminder: Reminder = new Reminder (this.reminderCounter, '');
+  addReminder(): Reminder {
+    let reminder: Reminder = new Reminder(this.reminderCounter, '');
     this.reminders.push(reminder);
     return reminder;
   }
@@ -28,7 +24,11 @@ export class reminderContainer {
     if (id != -1) this.reminders.splice(i, 1);
   }
 
-  getReminderPos(id:number): number {
+  setName(newName: string) {
+    this.name=newName;
+  }
+
+  getReminderPos(id: number): number {
     for (var i = 0; i < this.reminders.length; i++) {
       if (this.reminders[i].getID() == id) {
         return i;
@@ -49,8 +49,7 @@ export class reminderContainer {
     return this.reminderCounter;
   }
 
-  getReminders(): Reminder[]{
+  getReminders(): Reminder[] {
     return this.reminders;
   }
-
 }

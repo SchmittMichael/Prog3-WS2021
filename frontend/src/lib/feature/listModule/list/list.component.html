@@ -5,4 +5,9 @@
     value="{{ listObject.getTitle() }}"
     (change)="editTitle($event)"
   >
+
+  <reminderContainer [rcObject]="listObject.getRemCon()"
+  *ngIf="showContainer">
+  </reminderContainer>
+
 </div>

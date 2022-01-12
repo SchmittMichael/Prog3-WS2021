@@ -11,17 +11,15 @@
       <p>Flagged</p>
     </div>
 
-
-    <div id="body">
-      <ul>
-        <li *ngFor="let list of lcObject.getLists()">
-          <list
-            (clickDeleteEvent)="deleteList($event)"
-            [listObject]="list"
-            [selectedOnCreate]="list == selected"
-            color="{{ this.color }}"
-          ></list>
-        </li>
-      </ul>
-    </div>
+  <div id="body">
+    <ul>
+      <li *ngFor="let list of lcObject.getLists()">
+        <list
+          (clickDeleteEvent)="deleteList($event)"
+          [listObject]="list"
+          [selectedOnCreate]="list == selected"
+        ></list>
+      </li>
+    </ul>
   </div>
+</div>

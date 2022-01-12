@@ -1,11 +1,18 @@
 <div class="Reminder" (mouseenter)="hoverEvent()" (mouseleave)="mouseOutEvent()">
-  <input
+  <div class= "name">
+    <input
     #myInput
     type="text"
     value = "{{ reminderObject.getTitle()}}"
-    value = "{{reminderObject.getDate()}} "
-
-    (change)="editDate($event)"
     (change)="editName($event)"
-  />
+    >
+  </div>
+  <div class= "date">
+   <input
+    #myInput
+    type="date"
+    value = "{{ reminderObject.getTitle()}}"
+    (change)="editName($event)"
+    >
+  </div>
 </div>
