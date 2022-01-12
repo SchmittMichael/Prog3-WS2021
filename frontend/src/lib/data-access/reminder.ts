@@ -1,34 +1,35 @@
 export class Reminder {
   //private id: number;
-  private date: String;
-  private title: String;
+  private date: string;
+  private title: string;
   private flag: boolean;
   private id: number;
 
-  constructor(id: number, title: String) {
+  constructor(id: number, title: string) {
     this.id = id;
     this.date = new Date().toDateString();
     this.title = title;
     this.flag = false;
+    //console.log("Reminder erstellt: "+title)
   }
 
   getID(): number {
     return this.id;
   }
 
-  getTitle(): String {
+  getTitle(): string {
     return this.title;
   }
 
-  getDate(): String {
+  getDate(): string {
     return this.date;
   }
 
-  setTitle(newName: String): void {
+  setTitle(newName: string): void {
     this.title = newName;
   }
 
-  setDate(newDate: String): void {
+  setDate(newDate: string): void {
     this.date = newDate;
   }
 }

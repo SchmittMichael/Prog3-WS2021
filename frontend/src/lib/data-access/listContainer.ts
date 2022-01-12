@@ -1,17 +1,13 @@
 import { List } from "./list";
 
-export class ListContainer{
-  public lists: List[] = [];
+export class ListContainer {
+  private lists: List[] = [];
+  static listCounter: number = 0;
 
-  private listCounter: number;
-
-  constructor(){
-    this.listCounter =0;
-  }
-
+  constructor() {}
 
   addList(): List {
-    let l: List = new List(this.listCounter,'')
+    let l: List = new List(ListContainer.listCounter++, ListContainer.listCounter+". Liste");
     this.lists.push(l);
     return l;
   }
@@ -21,10 +17,11 @@ export class ListContainer{
     if (id != -1) this.lists.splice(i, 1);
   }
 
-  getListPos(id: number): number {
-    for(var i = 0;i<this.lists.length;i++){
-      if(this.lists[i].getID() == id)
-      return i;
+  getListPos(itemID: number): number {
+    for (var i = 0; i < this.lists.length; i++) {
+      if (this.lists[i].getID() == itemID) {
+        return i;
+      }
     }
     return -1;
   }
@@ -32,4 +29,5 @@ export class ListContainer{
   getLists(): List[] {
     return this.lists;
   }
+
 }

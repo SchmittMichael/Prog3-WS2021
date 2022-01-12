@@ -1,10 +1,11 @@
 import {
+  OnInit,
   Component,
   ElementRef,
   EventEmitter,
   Input,
   Output,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { List } from '../../../data-access/list';
 import { ListContainer } from '../../../data-access/listContainer';
@@ -15,23 +16,22 @@ import { ListContainer } from '../../../data-access/listContainer';
   styleUrls: ['./listContainer.component.scss']
 })
 
-export class ListContainerComponent{
-  @Input() lcObject: ListContainer;
+export class ListContainerComponent implements OnInit{
   @Input() selectedOnCreate: boolean;
-  @Input() color: string = '#000000';
+  @Input() color: string = '#29b9e6';
   @Output() clickDeleteEvent = new EventEmitter<number>();
 
   @ViewChild('myInput') myInput: ElementRef;
 
-    selectedObject: List;
-    elementRef: ElementRef;
+  lcObject: ListContainer;
+  selected: List;
 
     ngOnInit(): void {
       this.lcObject = new ListContainer();
     }
 
     createNewList(input: any): void {
-      this.selectedObject = this.lcObject.addList();
+      this.selected = this.lcObject.addList();
     }
 
     deleteList(id: number): void {

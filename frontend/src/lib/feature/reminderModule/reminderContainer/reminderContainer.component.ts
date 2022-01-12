@@ -46,7 +46,7 @@ export class reminderContainerComponent{
       this.rcObject.removeReminder(id);
     }
 
-    showName():String {
+    showName():string {
       return this.rcObject.getName();
     }
 

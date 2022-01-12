@@ -4,15 +4,16 @@ export class reminderContainer {
 
   private id: number;
   public reminders: Reminder[] = [];
-  private name: String;
+  private name: string;
   private reminderCounter: number;
 
 
 
-  constructor(id: number, name: String){
+  constructor(id: number, name: string){
     this.id = id;
     this.name = name;
     this.reminderCounter = 0;
+    console.log("RerminderContainer erstellt: "+name);
 
   }
 
@@ -40,7 +41,7 @@ export class reminderContainer {
     return this.id;
   }
 
-  getName(): String {
+  getName(): string {
     return this.name;
   }
 
