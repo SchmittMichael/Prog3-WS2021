@@ -1,13 +1,15 @@
-.addButton {
+.listButton {
   position: absolute;
   transition: box-shadow 0.1s;
   margin: 0;
+
+  position: absolute;
   top: 95%;
   left: 5%;
   transform: translate(-50%, -50%);
 }
 
-.addButton .symbol {
+.symbol {
   font-family: 'Courier New', Courier, monospace;
   padding: 0;
   position: relative;
@@ -16,7 +18,6 @@
   margin-right: auto;
 }
 
-.addButton:hover {
-  // box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  color: #2c8a2c;
+.listButton:hover {
+  color: #535050;
 }

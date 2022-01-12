@@ -50,6 +50,6 @@ export class ReminderComponent implements AfterViewInit{
   }
 
   editDate(event: any): void {
-    
+
   }
 }

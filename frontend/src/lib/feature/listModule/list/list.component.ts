@@ -5,7 +5,7 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { List } from '../../../data-access/list';
 
