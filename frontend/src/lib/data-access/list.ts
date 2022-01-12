@@ -6,12 +6,12 @@ export class List {
   static listcounter: number = 1;
   public rC: reminderContainer;
 
-  constructor(id: number, name: String) {
+  constructor(id: number, listname: String) {
     this.id = id;
-    this.title = name;
+    this.title = listname;
     this.remindcount = 0; // set number of Reminders default 0
     List.listcounter++; // set  number for default name
-    this.rC = new reminderContainer(0, name);
+    this.rC = new reminderContainer(0, this.title);
 
     console.log("Neue liste erstellt!");
   }

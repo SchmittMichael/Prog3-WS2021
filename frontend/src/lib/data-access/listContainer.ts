@@ -29,7 +29,6 @@ export class ListContainer{
     return -1;
   }
 
-
   getLists(): List[] {
     return this.lists;
   }
