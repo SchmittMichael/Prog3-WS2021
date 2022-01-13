@@ -1,13 +1,21 @@
 .reminder {
   position: relative;
-  width: 100%;
+  width: 85%;
+  height: 5%;
+  margin-left: 5%;
   height: 70px;
   //background-color: hsl(#444444);
   display: flex;
   align-items: center;
   border-radius: 5px;
   transition: box-shadow 0.1s;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  border-bottom: white;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  border-width: 5px;
+  border-style: solid;
 
   input {
     outline: none;
@@ -51,7 +59,31 @@
   margin-left: 13px;
   background: transparent;
   border: none;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 700;
   width: 72%;
+}
+
+.reminder .date {
+  width: 100%;
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(129, 19, 19);
+  font-size: 1;
+  margin-top: 25px;
+  size: 2;
+  text-align: left;
+}
+
+.reminder .date input {
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  font-size: 1;
+  size: 2;
+}
+
+.reminder .name input {
+  color: rgb(229, 224, 224);
+  text-align: left;
+  font-family: sans-serif;
+  font-size: 17;
 }

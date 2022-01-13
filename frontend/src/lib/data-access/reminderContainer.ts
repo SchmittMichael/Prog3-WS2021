@@ -16,12 +16,14 @@ export class reminderContainer {
   addReminder(): Reminder {
     let reminder: Reminder = new Reminder(this.reminderCounter, '');
     this.reminders.push(reminder);
+    this.reminderCounter++;
     return reminder;
   }
 
   removeReminder(id: number): void {
     let i: number = this.getReminderPos(id);
     if (id != -1) this.reminders.splice(i, 1);
+    this.reminderCounter--;
   }
 
   setName(newName: string) {

@@ -5,7 +5,8 @@
   min-height: 160px;
   width: 74vw;
   height: 100vh;
-  margin-left: 25.5%;
+  // margin-left: 6.3%;
+  margin-left: 6.3vw;
   display: inline-block;
   background-color: transparent;
   font-weight: 600;
@@ -42,12 +43,23 @@
 }
 
 .reminderContainer .header #remindCount {
-  text-align: right;
+  /*text-align: right;
   margin-right: 13px;
   margin-top: -3vh;
+  */
+
+  right: 10px;
+  position: absolute;
+  padding: 10px;
+  top: 0px;
+  margin-top: 4.5vh;
+  margin-right: 1.4px;
+  margin-bottom: 0px;
+  position: fixed;
+
   font-size: 1.6em;
-  font-weight: 700;
-  color: rgb(255, 0, 0);
+  font-weight: 800;
+  color: rgb(255, 255, 255);
   font-family: 'Times New Roman', Times, serif;
 }
 
@@ -64,7 +76,7 @@
 
 .reminderContainer #body ul li {
   margin-bottom: 12px;
-  display: block;
+  display: inline-block;
   width: 100%;
   margin-right: 10px;
 }
@@ -73,4 +85,26 @@
   margin-top: 15px;
   padding-left: 10px;
   padding-right: 10px;
+}
+.reminderContainer .button {
+  margin-left: 40vw;
+}
+
+.reminderContainer #circle {
+  right: 10px;
+  position: absolute;
+  padding: 10px;
+  top: 0px;
+  margin-top: 5.7vh;
+  margin-right: 0px;
+  margin-bottom: 0px;
+
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: transparent;
+  border: 4px solid rgb(255, 0, 0);
 }
