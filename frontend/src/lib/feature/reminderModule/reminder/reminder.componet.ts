@@ -50,4 +50,9 @@ export class ReminderComponent implements AfterViewInit{
   editDate(event: any): void {
 
   }
+
+  editFlag(event: any): void{
+    this.reminderObject.flag = (this.reminderObject.flag)? false : true;
+    console.log(this.reminderObject.flag)
+  }
 }

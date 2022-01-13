@@ -31,7 +31,8 @@ export class ListComponent implements AfterViewInit {
   }
 
   clickEvent(): void {
-    //this.clickDeleteEvent.emit(this.listObject.getID());
+    console.log("Delete Click erkannt")
+    this.clickDeleteEvent.emit(this.listObject.getID());
   }
 
   editTitle(event: any): void {
@@ -40,5 +41,9 @@ export class ListComponent implements AfterViewInit {
 
   showRemCon(): void {
     this.showContainer = true;
+  }
+
+  showRemConCount(): number{
+    return this.listObject.getRemConCount();
   }
 }

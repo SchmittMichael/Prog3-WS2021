@@ -1,11 +1,15 @@
 <div class="list" (click)="showRemCon()">
+  <div id="delete" (click)="clickEvent()" >
+   <!-- <input type="image" src="../.././../../assets/trashcan.png">-->
+   "Müll"
+  </div>
   <input
     #myInput
     type="text"
     value="{{ listObject.getTitle() }}"
     (change)="editTitle($event)"
   >
-
+  <div id="count">{{showRemConCount()}}</div>
   <reminderContainer [rcObject]="listObject.getRemCon()"
   *ngIf="showContainer">
   </reminderContainer>

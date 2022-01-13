@@ -2,7 +2,7 @@ export class Reminder {
   //private id: number;
   private date: string;
   private title: string;
-  private flag: boolean;
+  public flag: boolean;
   private id: number;
 
   constructor(id: number, title: string) {

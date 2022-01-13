@@ -26,7 +26,12 @@ export class List {
   }
 
   getID(): number {
+    console.log("listID abgerufen")
     return this.id;
+  }
+
+  getRemConCount(): number {
+    return this.remCon.getCount();
   }
 
 }
