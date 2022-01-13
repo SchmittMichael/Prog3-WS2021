@@ -1,13 +1,12 @@
 <div class="reminderContainer">
-  <div class="button">
-      <addButton (newClickEvent)="createNewReminder($event)"></addButton>
+  <div id="header">
+    <div class="namebox"> {{showName()}} </div>
+    <div class="circle">
+       <div id="remindCount"> {{showCount()}} </div>
+    </div>
+
   </div>
 
-  <div class="header">
-    <div id="namebox"> {{showName()}} </div>
-    <div id="remindCount"> {{showCount()}} </div>
-  </div>
-  <div id="circle"></div>
   <div id="body">
     <ul>
       <li *ngFor="let reminder of rcObject.getReminders()">
@@ -19,5 +18,8 @@
       </li>
     </ul>
   </div>
+  <div class="button" (click)="createNewReminder()">
+      <input type="image" src="../assets/plus-white.png" name="submit" width="25" height="25"/>
+    </div>
 </div>
 

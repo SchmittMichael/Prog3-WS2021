@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { List } from '../../../data-access/list';
 import { ListContainer } from '../../../data-access/listContainer';
 
@@ -15,7 +15,7 @@ export class ListContainerComponent implements OnInit {
     this.lcObject = new ListContainer();
   }
 
-  createNewList(input: any): void {
+  createNewList(): void {
     this.selected = this.lcObject.addList();
   }
 

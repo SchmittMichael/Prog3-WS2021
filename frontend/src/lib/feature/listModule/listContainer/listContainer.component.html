@@ -1,7 +1,9 @@
 <div class="listContainer">
-    <div class="button">
-      <addButton (newClickEvent)="createNewList($event)"></addButton>
+
+<div class="button" (click)="createNewList()">
+      <input type="image" src="../assets/plus-black.png" name="submit" width="25" height="25"/>
     </div>
+
     <div class="header">
       <h1>My Reminder</h1>
     <div id="today" title="Today">

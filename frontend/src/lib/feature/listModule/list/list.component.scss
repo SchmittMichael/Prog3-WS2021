@@ -47,6 +47,14 @@
   z-index: 2;
 }
 
+.list #count {
+  top: 0;
+  right: 0;
+  color: #a3a3a3;
+  position: absolute;
+  margin-right: 2%;
+}
+
 .list input {
   margin-left: 13px;
   background: transparent;

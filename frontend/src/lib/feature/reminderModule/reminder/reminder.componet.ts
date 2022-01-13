@@ -5,17 +5,16 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 import { Reminder } from '../../../data-access/reminder';
 
 @Component({
   selector: 'reminder',
   templateUrl: './reminder.componet.html',
-  styleUrls: ['./reminder.componet.scss']
+  styleUrls: ['./reminder.componet.scss'],
 })
-
-export class ReminderComponent implements AfterViewInit{
+export class ReminderComponent implements AfterViewInit {
   @Input() reminderObject: Reminder;
   @Input() selectedOnCreate: boolean;
   @Output() clickDeleteEvent = new EventEmitter<number>();
@@ -31,7 +30,7 @@ export class ReminderComponent implements AfterViewInit{
     }
   }
 
-  hoverEvent(): void{
+  hoverEvent(): void {
     this.showCalender = true;
   }
 
@@ -47,12 +46,10 @@ export class ReminderComponent implements AfterViewInit{
     this.reminderObject.setTitle(event.target.value);
   }
 
-  editDate(event: any): void {
+  editDate(event: any): void {}
 
-  }
-
-  editFlag(event: any): void{
-    this.reminderObject.flag = (this.reminderObject.flag)? false : true;
-    console.log(this.reminderObject.flag)
+  editFlag(event: any): void {
+    this.reminderObject.flag = this.reminderObject.flag ? false : true;
+    console.log(this.reminderObject.flag);
   }
 }
