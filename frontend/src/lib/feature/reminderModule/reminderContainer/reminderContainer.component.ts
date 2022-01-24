@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Reminder } from '../../../data-access/reminder';
-import { reminderContainer } from '../../../data-access/reminderContainer';
+import { Reminder } from '../../../data-access/models/reminder';
+import { reminderContainer } from '../../../data-access/models/reminderContainer';
 
 @Component({
   selector: 'reminderContainer',

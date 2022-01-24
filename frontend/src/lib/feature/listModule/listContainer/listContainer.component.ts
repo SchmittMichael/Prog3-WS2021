@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { List } from '../../../data-access/list';
-import { ListContainer } from '../../../data-access/listContainer';
+import { List } from '../../../data-access/models/list';
+import { ListContainer } from '../../../data-access/models/listContainer';
 
 @Component({
   selector: 'listContainer',
