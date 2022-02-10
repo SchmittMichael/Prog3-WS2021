@@ -7,7 +7,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { Reminder } from '../../../data-access/reminder';
+import { Reminder } from '../../../data-access/models/reminder';
 
 @Component({
   selector: 'reminder',

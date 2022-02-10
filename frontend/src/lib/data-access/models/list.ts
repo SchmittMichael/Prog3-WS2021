@@ -1,6 +1,6 @@
 import { reminderContainer } from './reminderContainer';
 export class List {
-  private id: number;
+   id: number;
   private title: string;
   private remCon: reminderContainer;
 

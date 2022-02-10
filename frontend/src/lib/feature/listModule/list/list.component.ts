@@ -7,7 +7,7 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import { List } from '../../../data-access/list';
+import { List } from '../../../data-access/models/list';
 
 @Component({
   selector: 'list',
