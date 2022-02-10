@@ -2,8 +2,8 @@
 
 #include <iostream>
 
-using namespace Reminder::Api;
-using namespace Reminder::Core;
+using namespace ReminderApp::Api;
+using namespace ReminderApp::Core;
 using namespace crow;
 
 Endpoint::Endpoint(SimpleApp &givenApp, Manager &givenManager) : app(givenApp),
@@ -18,7 +18,7 @@ void Endpoint::registerRoutes() {
 
     CROW_ROUTE(app, "/api/board")
     ([this](const request &req, response &res) {
-        std::string jsonBoards = Manager.getListContainer();
+        std::string jsonBoards = manager.getListContainer();
         res.write(jsonBoards);
         res.end();
     });
@@ -29,11 +29,11 @@ void Endpoint::registerRoutes() {
 
             switch (req.method) {
             case HTTPMethod::Get: {
-                jsonColumns = Manager.getLists();
+                jsonColumns = manager.getLists();
                 break;
             }
             case HTTPMethod::Post: {
-                jsonColumns = Manager.postList(req.body);
+                jsonColumns = manager.postList(req.body);
                 res.code = 201;
                 break;
             }
@@ -52,15 +52,15 @@ void Endpoint::registerRoutes() {
 
             switch (req.method) {
             case HTTPMethod::Get: {
-                jsonColumn = Manager.getList(listID);
+                jsonColumn = manager.getList(listID);
                 break;
             }
             case HTTPMethod::Put: {
-                jsonColumn = Manager.putList(listID, req.body);
+                jsonColumn = manager.putList(listID, req.body);
                 break;
             }
             case HTTPMethod::Delete: {
-                Manager.deleteList(listID);
+                manager.deleteList(listID);
                 break;
             }
             default: {
@@ -78,11 +78,11 @@ void Endpoint::registerRoutes() {
 
             switch (req.method) {
             case HTTPMethod::Get: {
-                jsonItem = Manager.getReminders(listID);
+                jsonItem = manager.getReminders(listID);
                 break;
             }
             case HTTPMethod::Post: {
-                jsonItem = Manager.postReminder(listID, req.body);
+                jsonItem = manager.postReminder(listID, req.body);
                 res.code = 201;
                 break;
             }
@@ -101,15 +101,15 @@ void Endpoint::registerRoutes() {
 
             switch (req.method) {
             case HTTPMethod::Get: {
-                jsonItem = Manager.getReminder(listID, reminderID);
+                jsonItem = manager.getReminder(listID, reminderID);
                 break;
             }
             case HTTPMethod::Put: {
-                jsonItem = Manager.putReminder(listID, reminderID, req.body);
+                jsonItem = manager.putReminder(listID, reminderID, req.body);
                 break;
             }
             case HTTPMethod::Delete: {
-                Manager.deleteReminder(listID, reminderID);
+                manager.deleteReminder(listID, reminderID);
                 break;
             }
             default: {

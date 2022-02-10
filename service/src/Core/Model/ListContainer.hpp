@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+namespace ReminderApp {
 namespace Core {
 namespace Model {
 
@@ -24,3 +25,4 @@ class ListContainer {
 
 } // namespace Model
 } // namespace Core
+} // namespace ReminderApp

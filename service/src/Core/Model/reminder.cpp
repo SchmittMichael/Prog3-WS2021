@@ -1,6 +1,6 @@
 #include "Reminder.hpp"
 
-using namespace Core::Model;
+using namespace ReminderApp::Core::Model;
 
 Reminder::Reminder(int id, std::string title, int pos, time_t date)
             : id(id), title(title), position(pos), date(date) {}

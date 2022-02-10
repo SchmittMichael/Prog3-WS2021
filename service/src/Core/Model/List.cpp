@@ -1,9 +1,9 @@
 #include "List.hpp"
 
-using namespace Core::Model;
+using namespace ReminderApp::Core::Model;
 
 List::List(int id, std::string name, int pos)
-          :id(id), name(name), position(pos) {}
+    : id(id), name(name), position(pos) {}
 
 int List::getId() const {
     return id;
@@ -36,4 +36,3 @@ void List::setPos(int newPos) {
 void List::addReminder(Reminder &newReminder) {
     reminders.push_back(newReminder);
 }
-
