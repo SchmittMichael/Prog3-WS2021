@@ -4,7 +4,7 @@
 #include "sqlite3.h"
 #include <string>
 
-namespace Reminder {
+namespace ReminderApp {
 namespace Repository {
 
 class SQLiteRepository : public RepositoryIf {
@@ -19,4 +19,4 @@ class SQLiteRepository : public RepositoryIf {
 };
 // test
 } // namespace Repository
-} // namespace Reminder
+} // namespace ReminderApp

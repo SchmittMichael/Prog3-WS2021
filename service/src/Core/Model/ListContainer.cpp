@@ -1,6 +1,6 @@
 #include "ListContainer.hpp"
 
-using namespace Core::Model;
+using namespace ReminderApp::Core::Model;
 
 ListContainer::ListContainer(int id) : id(id){};
 
