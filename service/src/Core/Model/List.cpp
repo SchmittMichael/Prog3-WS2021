@@ -17,7 +17,7 @@ int List::getPos() const {
     return position;
 }
 
-std::vector<Reminder> List::getItems() const {
+std::vector<Reminder> List::getReminders() const {
     return reminders;
 }
 

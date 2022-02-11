@@ -18,7 +18,7 @@ class List {
     int getId() const;
     std::string getName() const;
     int getPos() const;
-    std::vector<Reminder> getItems() const;
+    std::vector<Reminder> getReminders() const;
 
     void setID(int newID);
     void setName(std::string newName);
