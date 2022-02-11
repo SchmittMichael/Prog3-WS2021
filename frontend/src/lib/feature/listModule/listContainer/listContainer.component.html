@@ -20,6 +20,7 @@
       <li *ngFor="let list of lcObject.getLists()">
         <list
           (clickDeleteEvent)="deleteList($event)"
+          (changeViewEvent)="currentView($event)"
           [listObject]="list"
           [selectedOnCreate]="list == selected"
         ></list>

@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import {
   AfterViewInit,
   Component,
@@ -5,7 +6,7 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 import { Reminder } from '../../../data-access/models/reminder';
 
@@ -23,6 +24,7 @@ export class ReminderComponent implements AfterViewInit {
 
   showCalender: boolean = false;
   elementRef: ElementRef;
+  deleteTrigger: boolean = false;
 
   ngAfterViewInit(): void {
     if (this.selectedOnCreate) {
@@ -32,6 +34,22 @@ export class ReminderComponent implements AfterViewInit {
 
   hoverEvent(): void {
     this.showCalender = true;
+  }
+
+  async deleteReminder() {
+    this.toggleTrigger();
+    if(this.deleteTrigger== true){
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      if(this.deleteTrigger== true){
+        this.clickDeleteEvent.emit(this.reminderObject.getID());
+        console.log('delete succesfull');
+      }
+      else console.log('delete failed')
+    }
+  }
+
+  toggleTrigger(): void {
+    this.deleteTrigger = !this.deleteTrigger;
   }
 
   mouseOutEvent(): void {

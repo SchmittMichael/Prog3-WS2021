@@ -18,6 +18,7 @@ export class ListComponent implements AfterViewInit {
   @Input() listObject: List;
   @Input() selectedOnCreate: boolean;
   @Output() clickDeleteEvent = new EventEmitter<number>();
+  @Output() changeViewEvent = new EventEmitter<ListComponent>();
 
   @ViewChild('myInput') myInput: ElementRef;
 
@@ -40,7 +41,12 @@ export class ListComponent implements AfterViewInit {
   }
 
   showRemCon(): void {
-    this.showContainer = true;
+    this.changeViewEvent.emit(this);
+    this.showContainer = true
+  }
+
+  setViewFalse(): void{
+    this.showContainer = false;
   }
 
   showRemConCount(): number{

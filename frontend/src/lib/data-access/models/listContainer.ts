@@ -1,7 +1,7 @@
 import { List } from "./list";
 
 export class ListContainer {
-  private lists: List[] = [];
+  lists: List[] = [];
   static listCounter: number = 0;
 
   constructor() {}
