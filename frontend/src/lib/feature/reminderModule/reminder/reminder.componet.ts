@@ -37,7 +37,7 @@ export class ReminderComponent implements AfterViewInit {
   }
 
   async deleteReminder() {
-    this.toggleTrigger();
+    this.deleteTrigger = !this.deleteTrigger;
     if(this.deleteTrigger== true){
       await new Promise((resolve) => setTimeout(resolve, 3000));
       if(this.deleteTrigger== true){
@@ -46,10 +46,6 @@ export class ReminderComponent implements AfterViewInit {
       }
       else console.log('delete failed')
     }
-  }
-
-  toggleTrigger(): void {
-    this.deleteTrigger = !this.deleteTrigger;
   }
 
   mouseOutEvent(): void {
