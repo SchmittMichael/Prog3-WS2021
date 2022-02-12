@@ -1,12 +1,8 @@
 <div class="reminder" (mouseenter)="hoverEvent()" (mouseleave)="mouseOutEvent()"> <!--changed Reminder to reminder-->
-
-
   <div class = "delete">
     <input type="checkbox"
     (change)="deleteReminder()">
   </div>
-
-
   <div class= "name">
     <input
     #myInput
@@ -25,6 +21,7 @@
   </div><!--changed second getTitle() to getDate() + changed second editName() to editDate()-->
   <div class="flag">
     <input type="checkbox"
-    (change)="editFlag($event)
-    "></div>
+    (change)="editFlag($event)">
+  </div>
+
 </div>

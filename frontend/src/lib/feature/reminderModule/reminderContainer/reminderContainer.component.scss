@@ -19,7 +19,10 @@
 }
 
 .reminderContainer #header {
+  position: absolute;
   height: 56px;
+  width: 100%;
+  /*
   display: flex;
   align-items: center;
   font-weight: 600;
@@ -31,13 +34,13 @@
   //width: 80%;
   width: 20%;
   color: white;
+  */
 }
 
-
-
-
-.reminderContainer .header #namebox {
-  text-align: center;
+.reminderContainer #header #namebox {
+  margin-left: 3vw;
+  position: absolute;
+  text-align: left;
   font-size: 1.6em;
   font-weight: 400;
   color: rgb(236, 229, 229);
@@ -46,52 +49,35 @@
 }
 
 .reminderContainer #header .circle {
-  right: 10px;
-  position: absolute;
-  padding: 10px;
-  top: 0px;
-  margin-top: 5.7vh;
-  margin-right: 0px;
-  margin-bottom: 0px;
-
+  text-align: right;
+  right: 1.6vw;
   position: fixed;
+  padding: 10px;
+  margin-top: 5.7vh;
   width: 15px;
   height: 15px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
   background: transparent;
-  border: 4px solid rgb(233, 233, 233);
+  border: 4px solid rgb(195, 39, 39);
 }
 
-.reminderContainer #header .cicle #remindCount {
-
-
-  /*text-align: right;
-  margin-right: 13px;
-  margin-top: -3vh;
-
-
-  right: 10px;
-  position: absolute;
-  padding: 10px;
-  top: 0px;
-  margin-top: 4.5vh;
-  margin-right: 1.4px;
-  margin-bottom: 0px;
+.reminderContainer #header #remindCount {
+  text-align: right;
+  color: white;
+  right: 2vw;
   position: fixed;
-
-  font-size: 1.6em;
-  font-weight: 800;
-  color: rgb(255, 255, 255);
-  font-family: 'Times New Roman', Times, serif;
-
-  */
+  padding: 10px;
+  margin-top: 5.7vh;
+  width: 15px;
+  height: 15px;
 }
 
 .reminderContainer #body {
   position: relative;
   overflow: auto;
+  margin-top: 15vh;
   @media screen and (orientation: landscape) and (max-device-width: 1024px) {
     max-height: 50vh;
   }
@@ -108,7 +94,7 @@
 }
 
 .reminderContainer #body ul {
-  margin-top: 15px;
+  margin-top: 10vh;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -117,7 +103,6 @@
 }
 
 .reminderContainer .button {
-
   position: fixed;
   transition: box-shadow 0.1s;
   margin: 0;

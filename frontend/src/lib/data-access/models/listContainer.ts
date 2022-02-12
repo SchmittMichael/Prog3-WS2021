@@ -7,7 +7,7 @@ export class ListContainer {
   constructor() {}
 
   addList(): List {
-    let l: List = new List(ListContainer.listCounter++, ListContainer.listCounter+". Liste");
+    let l: List = new List(ListContainer.listCounter++, "");
     this.lists.push(l);
     return l;
   }

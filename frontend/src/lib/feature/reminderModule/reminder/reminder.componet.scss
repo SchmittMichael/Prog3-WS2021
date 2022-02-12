@@ -56,24 +56,13 @@
 }
 
 .reminder input {
-  margin-left: 13px;
+  margin-left: 0px;
   background: transparent;
   border: none;
   font-size: 1.2em;
   font-weight: 700;
   width: 100;
 }
-
-/*.reminder .date #date {
-  width: 100%;
-  font-family: 'Courier New', Courier, monospace;
-  color: rgb(129, 19, 19);
-  font-size: 1;
-  margin-top: 25px;
-  size: 2;
-  text-align: left;
-}
-*/
 
 .reminder .date {
   position: absolute;
@@ -141,15 +130,35 @@
 }
 
 .reminder .flag {
-  position: absolute;
-  right: 5%;
-  left: 75%;
+  left: 100vw;
+  position: relative;
+  /*right: 5%;
+  left: 75%;*/
+  top: 0vh;
+  cursor: pointer;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  line-height: 25px;
+  background: transparent;
+  outline: none;
 }
 
-.reminder.flag [type='checkbox']::before {
-  //not working yet
-  background-image: url('/frontend/src/assets/Flagnorm.png');
+.reminder .flag [type='checkbox']::before {
+  left: -95vw;
+  content: '';
   position: absolute;
-  width: 20px;
-  height: 20px;
+  background: url('../../../../assets/Flagnorm.png') no-repeat;
+  width: 45px;
+  height: 45px;
+  outline: 2px solid transparent; //make black for checkbox
+  background-size: 90%;
+}
+
+.reminder .flag [type='checkbox']:checked::before {
+  position: absolute;
+  background: url('../../../../assets/Flagselec.png') no-repeat;
+  width: 45px;
+  height: 45px;
+  outline: 2px solid transparent; //make black for checkbox
+  background-size: 90%;
 }

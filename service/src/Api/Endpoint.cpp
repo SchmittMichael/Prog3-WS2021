@@ -18,22 +18,22 @@ void Endpoint::registerRoutes() {
 
     CROW_ROUTE(app, "/api/board")
     ([this](const request &req, response &res) {
-        std::string jsonBoards = manager.getListContainer();
-        res.write(jsonBoards);
+        std::string jsonListContainers = manager.getListContainer();
+        res.write(jsonListContainers);
         res.end();
     });
 
     CROW_ROUTE(app, "/api/board/columns")
         .methods("GET"_method, "POST"_method)([this](const request &req, response &res) {
-            std::string jsonColumns;
+            std::string jsonLists;
 
             switch (req.method) {
             case HTTPMethod::Get: {
-                jsonColumns = manager.getLists();
+                jsonLists = manager.getLists();
                 break;
             }
             case HTTPMethod::Post: {
-                jsonColumns = manager.postList(req.body);
+                jsonLists = manager.postList(req.body);
                 res.code = 201;
                 break;
             }
@@ -42,21 +42,21 @@ void Endpoint::registerRoutes() {
             }
             }
 
-            res.write(jsonColumns);
+            res.write(jsonLists);
             res.end();
         });
 
     CROW_ROUTE(app, "/api/board/columns/<int>")
         .methods("GET"_method, "PUT"_method, "DELETE"_method)([this](const request &req, response &res, int listID) {
-            std::string jsonColumn = "{}";
+            std::string jsonList = "{}";
 
             switch (req.method) {
             case HTTPMethod::Get: {
-                jsonColumn = manager.getList(listID);
+                jsonList = manager.getList(listID);
                 break;
             }
             case HTTPMethod::Put: {
-                jsonColumn = manager.putList(listID, req.body);
+                jsonList = manager.putList(listID, req.body);
                 break;
             }
             case HTTPMethod::Delete: {
@@ -68,7 +68,7 @@ void Endpoint::registerRoutes() {
             }
             }
 
-            res.write(jsonColumn);
+            res.write(jsonList);
             res.end();
         });
 

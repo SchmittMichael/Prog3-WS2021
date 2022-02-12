@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import {
   AfterViewInit,
   Component,
@@ -63,6 +62,8 @@ export class ReminderComponent implements AfterViewInit {
   editDate(event: any): void {}
 
   editFlag(event: any): void {
+    console.log('flagged');
     this.reminderObject.flag = this.reminderObject.flag ? false : true;
+
   }
 }
