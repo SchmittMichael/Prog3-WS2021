@@ -3,7 +3,7 @@
 using namespace ReminderApp::Core::Model;
 
 Reminder::Reminder(int id, std::string title, int pos, time_t date)
-            : id(id), title(title), position(pos), date(date) {}
+    : id(id), title(title), position(pos), date(date) {}
 
 int Reminder::getId() const {
     return id;
@@ -15,6 +15,10 @@ int Reminder::getPos() const {
 
 time_t Reminder::getDate() const {
     return date;
+}
+
+std::string Reminder::getTitle() const {
+    return title;
 }
 
 void Reminder::setID(int newID) {
@@ -32,4 +36,3 @@ void Reminder::setPos(int newPos) {
 void Reminder::setDate(time_t newDate) {
     date = newDate;
 }
-

@@ -112,3 +112,62 @@
   right: 5%;
   left: 75%;
 }
+
+.reminder {
+  //opacity: 0;
+  //@debug: hidden;
+}
+.reminder .delete {
+  position: relative;
+  padding-left: 5%;
+  cursor: pointer;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  line-height: 25px;
+  background: transparent;
+  outline: none;
+}
+
+.reminder .delete [type='checkbox']::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  outline: 2px solid rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0);
+}
+
+.reminder .delete [type='checkbox']:checked::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  outline: 2px solid rgb(83, 236, 12);
+  background: rgba(255, 0, 0, 0);
+}
+
+/*
+.reminder .delete input[type='checkbox'] {
+  background-color: rgb(255, 0, 0);
+
+  margin: 0;
+
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+*/
