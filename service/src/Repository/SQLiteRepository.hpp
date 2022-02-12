@@ -35,20 +35,20 @@ class SQLiteRepository : public RepositoryIf {
     virtual ReminderApp::Core::Model::ListContainer getListContainer();
     virtual std::vector<ReminderApp::Core::Model::List> getLists();
     virtual std::optional<ReminderApp::Core::Model::List> getList(int id);
-    virtual std::optional<ReminderApp::Core::Model::List> postList(string name, int position);
-    virtual std::optional<ReminderApp::Core::Model::List> putList(int id, string name, int position);
+    virtual std::optional<ReminderApp::Core::Model::List> postList(std::string name, int position);
+    virtual std::optional<ReminderApp::Core::Model::List> putList(int id, std::string name, int position);
     virtual void deleteList(int id);
     virtual std::vector<ReminderApp::Core::Model::Reminder> getReminders(int listId);
     virtual std::optional<ReminderApp::Core::Model::Reminder> getReminder(int listId, int reminderId);
-    virtual std::optional<ReminderApp::Core::Model::Reminder> postReminder(int listId, string title, int position, time_t date);
-    virtual std::optional<ReminderApp::Core::Model::Reminder> putReminder(int listId, int reminderId, string title, int position, time_t date);
+    virtual std::optional<ReminderApp::Core::Model::Reminder> postReminder(int listId, std::string title, int position, time_t date);
+    virtual std::optional<ReminderApp::Core::Model::Reminder> putReminder(int listId, int reminderId, std::string title, int position, time_t date);
     virtual void deleteReminder(int columnId, int itemId);
 
     static inline int const listContainerId = 0;
     static inline int const INVALID_ID = -1;
 
 
-    static string const databaseFile;
+    static std::string const databaseFile;
 };
 // test
 } // namespace Repository

@@ -38,9 +38,7 @@ class JsonParser : public ParserIf {
     virtual std::optional<ReminderApp::Core::Model::List> convertListToModel(int listId, std::string &request);
     virtual std::optional<ReminderApp::Core::Model::Reminder> convertReminderToModel(int reminderId, std::string &request);
 
-    virtual std::string getEmptyResponseString() {
-        return JsonParser::EMPTY_JSON;
-    }
+  
 };
 
 } // namespace Parser
