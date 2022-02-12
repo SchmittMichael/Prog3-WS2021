@@ -61,10 +61,10 @@
   border: none;
   font-size: 1.2em;
   font-weight: 700;
-  width: 72%;
+  width: 100;
 }
 
-.reminder .date {
+/*.reminder .date #date {
   width: 100%;
   font-family: 'Courier New', Courier, monospace;
   color: rgb(129, 19, 19);
@@ -73,17 +73,42 @@
   size: 2;
   text-align: left;
 }
+*/
+
+.reminder .date {
+  position: absolute;
+  top: 83%;
+  left: 10%;
+  font-size: 60%;
+}
 
 .reminder .date input {
   font-family: 'Courier New', Courier, monospace;
-  color: white;
+  color: rgb(229, 224, 224);
   font-size: 1;
   size: 2;
+  transform: translate(-50%, -50%);
 }
 
+.reminder .name {
+  width: 700;
+}
 .reminder .name input {
   color: rgb(229, 224, 224);
   text-align: left;
   font-family: sans-serif;
   font-size: 17;
+  width: 53ch;
+}
+
+.reminder .flag input {
+  position: absolute;
+  right: 5%;
+  left: 75%;
+}
+
+.reminder .flag {
+  position: absolute;
+  right: 5%;
+  left: 75%;
 }

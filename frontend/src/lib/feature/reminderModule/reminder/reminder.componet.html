@@ -11,7 +11,8 @@
     type="text"
     value = "{{ reminderObject.getTitle()}}"
     (change)="editName($event)"
-    >
+
+    ><!--onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';"-->
   </div>
   <div class= "date">
    <input
