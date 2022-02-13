@@ -12,6 +12,7 @@ export class ListContainerComponent implements OnInit {
   lcObject: ListContainer;
   selected: List;
   view: ListComponent;
+  flagedcount: number;
 
   ngOnInit(): void {
     this.lcObject = new ListContainer();
@@ -31,5 +32,19 @@ export class ListContainerComponent implements OnInit {
       this.view = currentList;
     }
     else this.view = currentList;
+  }
+  showFlaggedCount(): number {
+
+    //<div id="remindCount"> {{showFlaggedCount()}}</div>
+/*
+    this.lcObject.lists.forEach(List  => {
+      List.getRemCon.getReminders.forEach(Reminder => {
+      if(Reminder.getFlag == true){this.flagedcount ++;}
+    });
+
+    });
+    */
+     this.flagedcount = 9; // idk wie die mehtode geht -__O
+    return this.flagedcount ;
   }
 }

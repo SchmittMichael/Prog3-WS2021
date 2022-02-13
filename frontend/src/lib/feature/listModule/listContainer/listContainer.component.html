@@ -1,13 +1,13 @@
 <div class="listContainer">
     <div class="header">
       <h1>My Reminder</h1>
-    <div id="today" title="Today">
+    <div class="todaybutton" title="Today"(click)="createNewList()" >
       <p>Today</p>
-      <div>0</div>
+    <div>??</div>
     </div>
-    <div id="Flagged">
+    <div class="flaggedbutton" title="Flagged"(click)="createNewList()">
       <p>Flagged</p>
-      <div>0</div>
+      <div>{{showFlaggedCount()}}</div>
     </div>
 
   <div id="body">

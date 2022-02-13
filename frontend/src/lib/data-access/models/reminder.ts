@@ -16,6 +16,9 @@ export class Reminder {
   getID(): number {
     return this.id;
   }
+  getFlag(): boolean{
+    return this.flag;
+  }
 
   getTitle(): string {
     return this.title;

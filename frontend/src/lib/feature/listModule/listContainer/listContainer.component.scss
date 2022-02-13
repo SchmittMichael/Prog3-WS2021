@@ -20,16 +20,16 @@
 
 .listContainer .header {
   height: 56px;
-  width: 25;
-  margin: 0 auto;
+  //width: 25;
+  margin: 10px auto;
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
   color: rgb(0, 0, 0);
   font-weight: 600;
 }
 
-.listContainer .header #Flagged {
-  width: 30%;
+.listContainer .header .todaybutton {
+  width: 7vw;
   border: 1px solid;
   border-radius: 3px;
   display: inline-block;
@@ -37,9 +37,8 @@
   padding: 5px;
   text-align: center;
 }
-
-.listContainer .header #today {
-  width: 30%;
+.listContainer .header .flaggedbutton {
+  width: 7vw;
   border: 1px solid;
   border-radius: 3px;
   display: inline-block;
@@ -47,7 +46,6 @@
   padding: 5px;
   text-align: center;
 }
-
 .listContainer #body {
   position: relative;
   @media screen and (orientation: landscape) and (max-device-width: 1024px) {
@@ -75,7 +73,6 @@
   margin-right: 10px;
 }
 .listContainer .button {
-
   position: fixed;
 
   margin: 0;
