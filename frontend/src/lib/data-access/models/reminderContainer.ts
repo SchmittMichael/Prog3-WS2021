@@ -2,7 +2,7 @@ import { Reminder } from './reminder';
 
 export class reminderContainer {
   private id: number;
-  public reminders: Reminder[] = [];
+  private reminders: Reminder[] = [];
   private name: string;
   private reminderCounter: number;
 
