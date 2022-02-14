@@ -78,6 +78,7 @@
   position: relative;
   overflow: auto;
   margin-top: 15vh;
+  overflow-x: hidden;
   @media screen and (orientation: landscape) and (max-device-width: 1024px) {
     max-height: 50vh;
   }
