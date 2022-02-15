@@ -13,8 +13,8 @@ string JsonParser::convertToApiString(ListContainer &listcontainer) {
     Document document;
     Document::AllocatorType &allocator = document.GetAllocator();
 
-    Value jsonBoard = getJsonValueFromModel(listcontainer, allocator);
-    return jsonValueToString(jsonBoard);
+    Value jsonListContainer = getJsonValueFromModel(listcontainer, allocator);
+    return jsonValueToString(jsonListContainer);
 }
 
 string JsonParser::convertToApiString(List &list) {
@@ -134,7 +134,7 @@ rapidjson::Value JsonParser::getJsonValueFromModel(ListContainer &listcontainer,
         jsonLists.PushBack(jsonList, allocator);
     }
 
-    // jsonListContainer.AddMember("title", Value(listcontainer.getTitle().c_str(), allocator), allocator);
+    jsonListContainer.AddMember("name", Value(listcontainer.getName().c_str(), allocator), allocator);
     jsonListContainer.AddMember("lists", jsonLists, allocator);
 
     return jsonListContainer;

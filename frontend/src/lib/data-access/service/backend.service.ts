@@ -1,8 +1,7 @@
-import{ HttpClient } from '@angular/common/http';
+import{ HttpClient  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-//Vorerst weiterhin mit Klassen gelöst
-import { List,  } from '../models/list';
+import {  Observable  } from 'rxjs';
+import { List} from '../models/list';
 import { Reminder } from '../models/reminder';
 import { ListContainer } from '../models/listContainer';
 
@@ -11,10 +10,10 @@ import { ListContainer } from '../models/listContainer';
   providedIn: 'root',
 })
     // Endpunkte müssen noch inplementiert werden!!!!
-export class Backendservice {
+export class BackendService {
   readonly url = 'http://localhost:4200';
 
-  constructor(private httpClient: HttpClient){}
+  constructor(private httpClient: HttpClient) {}
 
   loadListContainer(): Observable<ListContainer> {
     return this.httpClient.get<ListContainer>(this.url + '/api/lc');
@@ -26,13 +25,13 @@ export class Backendservice {
       };
 
       return this.httpClient.post<List>(
-        this.url + 'api/lc/lists', listPayload
+        this.url + '/api/lc/lists', listPayload
       );
   }
 
   deleteList(listId: number): Observable<void> {
     return this.httpClient.delete<void>(
-      this.url + 'api/lc/lists/' + listId
+      this.url + '/api/lc/lists/' + listId
     );
   }
 
@@ -42,33 +41,33 @@ export class Backendservice {
     };
 
     return this.httpClient.put<List>(
-      this.url +  'api/lc/lists/' + list.id, listPayload
+      this.url +  '/api/lc/lists/' + list.id, listPayload
     );
   }
 
-  createReminder(reminder: Reminder): Observable<Reminder> {
+  createReminder(listId: number, reminder: Reminder): Observable<Reminder> {
     let reminderPayload = {
-      ...reminder
+      ...reminder,
     };
 
     return this.httpClient.post<Reminder>(
-      this.url + '/api/lc/lists/', reminderPayload
+      this.url + '/api/lc/lists/'+listId+'/reminders', reminderPayload
     );
   }
 
-  deleteReminder(reminderId: number): Observable<void>{
+  deleteReminder(listId:number, reminderId: number): Observable<void>{
     return this.httpClient.delete<void>(
-      this.url + 'api/lc/lists/'+ reminderId
+      this.url + '/api/lc/lists/'+listId +'/reminders/'+ reminderId
     );
   }
 
-  updateReminder(reminder: Reminder): Observable<Reminder> {
+  updateReminder(listId: number, reminder: Partial<Reminder>): Observable<Reminder> {
     let reminderPayload = {
-      ... reminder
+      ... reminder,
     };
 
     return this.httpClient.put<Reminder>(
-      this.url + 'api/lists/', reminderPayload
+      this.url + '/api/lists/'+listId+'/reminders', reminderPayload
     );
   }
 

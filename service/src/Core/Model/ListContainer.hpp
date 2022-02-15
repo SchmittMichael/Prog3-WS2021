@@ -10,16 +10,16 @@ namespace Model {
 
 class ListContainer {
   public:
-    ListContainer(int id);
+    ListContainer(std::string name);
     ~ListContainer() {}
 
-    int getID() const;
+    std::string getName() const;
 
     std::vector<List> &getLists();
     void setLists(std::vector<List> const &Lists);
 
   private:
-    int id;
+    std::string name;
     std::vector<List> lists;
 };
 

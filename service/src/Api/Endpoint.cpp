@@ -16,14 +16,14 @@ Endpoint::~Endpoint() {
 
 void Endpoint::registerRoutes() {
 
-    CROW_ROUTE(app, "/api/board")
+    CROW_ROUTE(app, "/api/lc")
     ([this](const request &req, response &res) {
         std::string jsonListContainers = manager.getListContainer();
         res.write(jsonListContainers);
         res.end();
     });
 
-    CROW_ROUTE(app, "/api/board/columns")
+    CROW_ROUTE(app, "/api/lc/lists")
         .methods("GET"_method, "POST"_method)([this](const request &req, response &res) {
             std::string jsonLists;
 
@@ -46,7 +46,7 @@ void Endpoint::registerRoutes() {
             res.end();
         });
 
-    CROW_ROUTE(app, "/api/board/columns/<int>")
+    CROW_ROUTE(app, "/api/lc/lists/<int>")
         .methods("GET"_method, "PUT"_method, "DELETE"_method)([this](const request &req, response &res, int listID) {
             std::string jsonList = "{}";
 
@@ -72,7 +72,7 @@ void Endpoint::registerRoutes() {
             res.end();
         });
 
-    CROW_ROUTE(app, "/api/board/columns/<int>/items")
+    CROW_ROUTE(app, "/api/lc/lists/<int>/reminders")
         .methods("GET"_method, "POST"_method)([this](const request &req, response &res, int listID) {
             std::string jsonItem;
 
@@ -95,7 +95,7 @@ void Endpoint::registerRoutes() {
             res.end();
         });
 
-    CROW_ROUTE(app, "api/lc/lists/<int>/lists/<int>")
+    CROW_ROUTE(app, "/api/lc/lists/<int>/reminders/<int>")
         .methods("GET"_method, "PUT"_method, "DELETE"_method)([this](const request &req, response &res, int listID, int reminderID) {
             std::string jsonItem;
 

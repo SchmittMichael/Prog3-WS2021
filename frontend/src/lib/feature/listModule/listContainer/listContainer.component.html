@@ -12,12 +12,12 @@
 
   <div id="body">
     <ul>
-      <li *ngFor="let list of lcObject.getLists()">
+      <li *ngFor="let list of lcObject.lists; let i = index">
         <list
           (clickDeleteEvent)="deleteList($event)"
           (changeViewEvent)="currentView($event)"
           [listObject]="list"
-          [selectedOnCreate]="list == selected"
+          [selectedOnCreate]="newListIndex === i"
         ></list>
       </li>
     </ul>

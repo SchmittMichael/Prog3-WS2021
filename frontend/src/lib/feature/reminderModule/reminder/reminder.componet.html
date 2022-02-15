@@ -7,7 +7,7 @@
     <input
     #myInput
     type="text"
-    value = "{{ reminderObject.getTitle()}}"
+    value = "{{ reminderObject.title}}"
     (change)="editName($event)"
 
     ><!--onkeypress="this.style.width = ((this.value.length + 1) * 8) + 'px';"-->
@@ -15,7 +15,7 @@
   <div class= "date">
    <input
     type="date"
-    value = "{{ reminderObject.getDate()}}"
+    value = "{{ reminderObject.date}}"
     (change)="editDate($event)"
     >
   </div><!--changed second getTitle() to getDate() + changed second editName() to editDate()-->

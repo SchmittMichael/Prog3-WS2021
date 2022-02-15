@@ -47,7 +47,7 @@ void SQLiteRepository::initialize() {
         "create table if not exists reminder("
         "id integer not null primary key autoincrement,"
         "title text not null,"
-        "date bigint not null,"
+        "date bigint,"
         "position integer not null,"
         "list_id integer not null,"
         "unique (position, list_id),"
@@ -62,7 +62,7 @@ void SQLiteRepository::initialize() {
 
 ListContainer SQLiteRepository::getListContainer() {
 
-    ListContainer lc = ListContainer(listContainerId);
+    ListContainer lc = ListContainer(listContainerName);
 
     vector<List> lists = getLists();
     lc.setLists(lists);
@@ -75,9 +75,8 @@ std::vector<List> SQLiteRepository::getLists() {
     std::vector<List> lists;
 
     string sqlQueryLists =
-        "SELECT list.id, list.name, list.position, reminder.id, reminder.title, reminder.position, reminder.date"
-        "from list "
-        "left join reminder on reminder.list_id = list.id "
+        "SELECT list.id, list.name, list.position, reminder.id, reminder.title, reminder.position, reminder.date from list "
+        "left join reminder on list.id = reminder.list_id "
         "order by list.position, reminder.position";
 
     int result = 0;
@@ -94,9 +93,9 @@ std::optional<List> SQLiteRepository::getList(int id) {
     std::vector<List> lists;
 
     string sqlQueryLists =
-        "SELECT list.id, list.name, list.position, reminder.id, reminder.title, reminder.position, reminder.date"
-        "from reminder"
-        "left join reminder on reminder.list_id = list.id where list.id = " +
+        "SELECT list.id, list.name, list.position, reminder.id, reminder.title, reminder.position, reminder.date "
+        "from list "
+        "left join reminder on list.id = reminder.list_id where list.id = " +
         to_string(id) +
         " order by list.position, reminder.position";
 
@@ -218,7 +217,7 @@ std::optional<Reminder> SQLiteRepository::getReminder(int listId, int reminderId
 std::optional<Reminder> SQLiteRepository::postReminder(int listId, std::string title, int position, time_t date) {
 
     string sqlPostReminder =
-        "INSERT INTO reminder ('title', 'date', 'position', 'list_id')"
+        "INSERT INTO reminder ('title', 'date', 'position', 'list_id') "
         "VALUES ('" +
         title + ", "+ to_string(date) + ", "+ to_string(position) + ", " + to_string(listId) + ");";
 

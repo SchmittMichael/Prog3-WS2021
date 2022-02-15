@@ -7,6 +7,7 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
+import { BackendService } from 'src/lib/data-access/service/backend.service';
 import { List } from '../../../data-access/models/list';
 
 @Component({
@@ -17,6 +18,7 @@ import { List } from '../../../data-access/models/list';
 export class ListComponent implements AfterViewInit {
   @Input() listObject: List;
   @Input() selectedOnCreate: boolean;
+
   @Output() clickDeleteEvent = new EventEmitter<number>();
   @Output() changeViewEvent = new EventEmitter<ListComponent>();
 
@@ -24,6 +26,8 @@ export class ListComponent implements AfterViewInit {
 
   elementRef: ElementRef;
   showContainer: boolean;
+
+  constructor(private backendService: BackendService) {}
 
   ngAfterViewInit(): void {
     if (this.selectedOnCreate) {
@@ -33,11 +37,13 @@ export class ListComponent implements AfterViewInit {
 
   clickEvent(): void {
     console.log("Delete Click erkannt")
-    this.clickDeleteEvent.emit(this.listObject.getID());
+    this.clickDeleteEvent.emit(this.listObject.id);
   }
 
   editTitle(event: any): void {
-    this.listObject.setTitle(event.target.value);
+    this.listObject.name = event.target.value;
+
+    this.backendService.updateList(this.listObject).subscribe();
   }
 
   showRemCon(): void {
@@ -50,6 +56,6 @@ export class ListComponent implements AfterViewInit {
   }
 
   showRemConCount(): number{
-    return this.listObject.getRemConCount();
+    return this.listObject.reminders.length;
   }
 }

@@ -5,11 +5,14 @@
   <input
     #myInput
     type="text"
-    value="{{ listObject.getTitle() }}"
+    [value]="this.listObject.name"
     (change)="editTitle($event)"
   >
   <div id="count">{{showRemConCount()}}</div>
-  <reminderContainer [rcObject]="listObject.getRemCon()"
+  <reminderContainer
+  [reminders]="listObject.reminders"
+  [name]="listObject.name"
+  [id]="listObject.id"
   *ngIf="showContainer">
   </reminderContainer>
 

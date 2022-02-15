@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { List } from '../../../data-access/models/list';
 import { ListContainer } from '../../../data-access/models/listContainer';
 import { ListComponent } from '../list/list.component';
+import { BackendService } from '../../../data-access/service/backend.service'
 
 @Component({
   selector: 'listContainer',
@@ -9,21 +10,40 @@ import { ListComponent } from '../list/list.component';
   styleUrls: ['./listContainer.component.scss'],
 })
 export class ListContainerComponent implements OnInit {
-  lcObject: ListContainer;
-  selected: List;
+  lcObject?: ListContainer;
   view: ListComponent;
+
   flagedcount: number;
+  newListIndex?: number;
+
+  constructor(private backendService: BackendService) {}
 
   ngOnInit(): void {
-    this.lcObject = new ListContainer();
+    this.lcObject = {name:"INITIALISING", lists:[]};   //Fix dafür dass er nicht jedes mal die Konsole volspamt mit "ERROR TypeError: Cannot read properties of undefined (reading 'lists')"
+    this.backendService.loadListContainer().subscribe( (lc:ListContainer) => (this.lcObject = lc));
   }
 
   createNewList(): void {
-    this.selected = this.lcObject.addList();
+    let newList: List = { name: "", position: 0, reminders:[]};
+    this.newListIndex = this.lcObject.lists.push(newList) - 1;
+
+    newList.position = (this.newListIndex === 0)? 1 : this.lcObject.lists[this.newListIndex -1].position+1;
+
+    this.backendService.createList(newList).subscribe((list) => {
+      newList.id = list.id;
+      newList.position = list.position;
+    });
+
+
   }
 
-  deleteList(id: number): void {
-    this.lcObject.removeList(id);
+  deleteList(listId: number): void {
+    const index = this.lcObject.lists.findIndex(
+      (list) => list.id === listId
+    );
+    this.lcObject.lists.splice(index, 1);
+
+    this.backendService.deleteList(listId).subscribe();
   }
 
   currentView(currentList: ListComponent): void{

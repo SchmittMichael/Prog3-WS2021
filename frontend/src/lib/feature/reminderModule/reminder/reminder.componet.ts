@@ -7,6 +7,7 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
+import { BackendService } from 'src/lib/data-access/service/backend.service';
 import { Reminder } from '../../../data-access/models/reminder';
 
 @Component({
@@ -25,6 +26,8 @@ export class ReminderComponent implements AfterViewInit {
   elementRef: ElementRef;
   deleteTrigger: boolean = false;
 
+  constructor(private backendService: BackendService) {}
+
   ngAfterViewInit(): void {
     if (this.selectedOnCreate) {
       this.myInput.nativeElement.focus();
@@ -40,7 +43,7 @@ export class ReminderComponent implements AfterViewInit {
     if(this.deleteTrigger== true){
       await new Promise((resolve) => setTimeout(resolve, 3000));
       if(this.deleteTrigger== true){
-        this.clickDeleteEvent.emit(this.reminderObject.getID());
+        this.clickDeleteEvent.emit(this.reminderObject.id);
         console.log('delete succesfull');
       }
       else console.log('delete failed')
@@ -52,11 +55,12 @@ export class ReminderComponent implements AfterViewInit {
   }
 
   clickEvent(): void {
-    this.clickDeleteEvent.emit(this.reminderObject.getID());
+    this.clickDeleteEvent.emit(this.reminderObject.id);
   }
 
   editName(event: any): void {
-    this.reminderObject.setTitle(event.target.value);
+    this.reminderObject.title = event.target.value;
+    this.backendService.updateReminder(this.reminderObject.listId, this.reminderObject)
   }
 
   editDate(event: any): void {}

@@ -2,10 +2,10 @@
 
 using namespace ReminderApp::Core::Model;
 
-ListContainer::ListContainer(int id) : id(id){};
+ListContainer::ListContainer(std::string name) : name(name){};
 
-int ListContainer::getID() const {
-    return id;
+std::string ListContainer::getName() const {
+    return name;
 }
 
 std::vector<List> &ListContainer::getLists() {

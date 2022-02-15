@@ -1,18 +1,18 @@
 <div class="reminderContainer">
   <div id="header">
-    <div id="namebox">{{showName()}}</div>
-    <div id="remindCount"> {{showCount()}}</div>
+    <div id="namebox">{{this.name}}</div>
+    <div id="remindCount"> {{this.reminders.length}}</div>
     <div class="circle"></div>
 
   </div>
 
   <div id="body">
     <ul>
-      <li *ngFor="let reminder of rcObject.getReminders()">
+      <li *ngFor="let reminder of reminders; let i = index">
         <reminder
           (clickDeleteEvent)="deleteReminder($event)"
           [reminderObject]="reminder"
-          [selectedOnCreate]="reminder == selectedObject"
+          [selectedOnCreate]="newReminderIndex === i"
         ></reminder>
       </li>
     </ul>
