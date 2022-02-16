@@ -20,7 +20,8 @@
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
   "files.associations": {
     "optional": "cpp",
-    "ctime": "cpp"
+    "ctime": "cpp",
+    "ostream": "cpp"
   },
   "angular.enable-strict-mode-prompt": false
 }

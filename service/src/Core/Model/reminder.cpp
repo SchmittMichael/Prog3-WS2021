@@ -2,8 +2,8 @@
 
 using namespace ReminderApp::Core::Model;
 
-Reminder::Reminder(int id, std::string title, int pos, time_t date)
-    : id(id), title(title), position(pos), date(date) {}
+Reminder::Reminder(int id, std::string title, int pos, time_t date, bool flag)
+    : id(id), title(title), position(pos), date(date), flag(flag) {}
 
 int Reminder::getId() const {
     return id;
@@ -21,6 +21,10 @@ std::string Reminder::getTitle() const {
     return title;
 }
 
+bool Reminder::getFlag() const{
+    return flag;
+}
+
 void Reminder::setID(int newID) {
     id = newID;
 }
@@ -35,4 +39,8 @@ void Reminder::setPos(int newPos) {
 
 void Reminder::setDate(time_t newDate) {
     date = newDate;
+}
+
+void Reminder::setFlag(bool newFlagStatus){
+    flag = newFlagStatus;
 }

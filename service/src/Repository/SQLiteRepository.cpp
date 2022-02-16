@@ -48,6 +48,7 @@ void SQLiteRepository::initialize() {
         "id integer not null primary key autoincrement,"
         "title text not null,"
         "date bigint,"
+        "flag integer,"
         "position integer not null,"
         "list_id integer not null,"
         "unique (position, list_id),"
@@ -137,8 +138,7 @@ std::optional<ReminderApp::Core::Model::List> SQLiteRepository::putList(int id, 
 
     string sqlUpdateList =
         "UPDATE list "
-        "SET name = '" +
-        name + "', position = '" + to_string(position) +
+        "SET name = '" + name + "', position = '" + to_string(position) +
         "' WHERE id = " + to_string(id);
 
     int result = 0;
@@ -177,7 +177,7 @@ std::vector<Reminder> SQLiteRepository::getReminders(int listId) {
     std::vector<Reminder> reminders;
 
     string sqlQueryReminders =
-        "SELECT reminder.id, reminder.title, reminder.position, reminder.date from reminder "
+        "SELECT reminder.id, reminder.title, reminder.position, reminder.date, reminder.flag from reminder "
         "where reminder.list_id = " +
         std::to_string(listId) +
         " order by reminder.position";
@@ -214,12 +214,16 @@ std::optional<Reminder> SQLiteRepository::getReminder(int listId, int reminderId
     }
 }
 
-std::optional<Reminder> SQLiteRepository::postReminder(int listId, std::string title, int position, time_t date) {
+std::optional<Reminder> SQLiteRepository::postReminder(int listId, std::string title, int position, time_t date, bool flag) {
 
-    string sqlPostReminder =
-        "INSERT INTO reminder ('title', 'date', 'position', 'list_id') "
+  short flagInBin = flag? 1: 0;
+
+     string sqlPostReminder =
+        "INSERT INTO reminder ('title', 'date', 'position', 'list_id', 'flag') "
         "VALUES ('" +
-        title + ", "+ to_string(date) + ", "+ to_string(position) + ", " + to_string(listId) + ");";
+        title + "', '" + to_string(date) + "', '" + to_string(position) + "', '" + to_string(listId) + "', '" + to_string(flagInBin) + "')";
+      //VALUES ('title', 'date', 'position', 'listId', 'flagInBin' )
+
 
     int result = 0;
     char *errorMessage = nullptr;
@@ -235,11 +239,13 @@ std::optional<Reminder> SQLiteRepository::postReminder(int listId, std::string t
     return getReminder(listId, reminderId);
 }
 
-std::optional<ReminderApp::Core::Model::Reminder> SQLiteRepository::putReminder(int listId, int reminderId, std::string title, int position, time_t date) {
+std::optional<ReminderApp::Core::Model::Reminder> SQLiteRepository::putReminder(int listId, int reminderId, std::string title, int position, time_t date, bool flag) {
+
+    short flagInBin = flag? 1: 0;
 
     string sqlUpdateReminder =
-        "UPDATE reminder SET title = '" + title + "', position = " + to_string(position) + "', date = " + to_string(date) +
-        " WHERE reminder.list_id = " + to_string(listId) + " AND reminder.id = " + to_string(reminderId);
+        "UPDATE reminder SET title = '" + title + "', position = '" + to_string(position) + "', date = '" + to_string(date) + "', flag = '" + to_string(flagInBin) + "' "
+        "WHERE reminder.list_id = " + to_string(listId) + " AND reminder.id = " + to_string(reminderId);
 
     int result = 0;
     char *errorMessage = nullptr;
@@ -277,8 +283,14 @@ Reminder SQLiteRepository::getReminderFromCallback(char **fieldValues, int start
     index++;
 
     time_t date = fieldValues[index] ? atoi(fieldValues[index]) : 0;
+    index++;
 
-    Reminder rem(reminderId, title, position, date);
+    int temp = fieldValues[index] ? atoi(fieldValues[index])  : 0;
+
+    bool flag = temp==1;
+    std::cout << title <<" Flag: " << temp << std::endl;
+
+    Reminder rem(reminderId, title, position, date, flag);
     return rem;
 }
 
