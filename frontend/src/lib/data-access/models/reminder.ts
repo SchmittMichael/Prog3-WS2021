@@ -2,7 +2,7 @@ export interface Reminder {
   id?: number;
   title: string;
   position: number;
-  date?: Date;
+  date?: string;
   flag?: boolean;
 
 }

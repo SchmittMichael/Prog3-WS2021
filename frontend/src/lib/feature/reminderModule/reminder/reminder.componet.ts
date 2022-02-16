@@ -65,11 +65,8 @@ export class ReminderComponent implements AfterViewInit {
   }
 
   editDate(event: any): void {
-    let d:Date = event.target.value;
     this.reminderObject.date= event.target.value;
     this.backendService.updateReminder(this.listId, this.reminderObject).subscribe();
-
-    console.log(d.toLocaleString)
   }
 
   editFlag(event: any): void {
