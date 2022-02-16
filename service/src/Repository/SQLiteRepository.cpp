@@ -286,12 +286,6 @@ Reminder SQLiteRepository::getReminderFromCallback(char **fieldValues, int start
     int temp = fieldValues[index] ? atoi(fieldValues[index]) : 0;
     bool flag = temp == 1;
 
-    std::cout << title << " sql-Query: " <<  std::endl;
-
-    for(int i = 0;i <9;i++){
-       std::cout << fieldValues[i]<<  std::endl;
-    }
-
     Reminder rem(reminderId, title, position, date, flag);
     return rem;
 }
