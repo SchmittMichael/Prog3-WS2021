@@ -4,5 +4,6 @@ export interface Reminder {
   position: number;
   date?: string;
   flag?: boolean;
+  easteregg?: boolean;
 
 }

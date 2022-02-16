@@ -61,6 +61,7 @@ export class ReminderComponent implements AfterViewInit {
 
   editTitle(event: any): void {
     this.reminderObject.title = event.target.value;
+    if(this.reminderObject.title == "easteregg"){this.reminderObject.easteregg = true;}
     this.backendService.updateReminder(this.listId, this.reminderObject).subscribe();
   }
 

@@ -1,9 +1,18 @@
 <div class="reminder" (mouseenter)="hoverEvent()" (mouseleave)="mouseOutEvent()"> <!--changed Reminder to reminder-->
+
+  <!--__________EASTEREGG to activate create Reminder Type in "easteregg"____________-->
+  <h1 class="glitch" *ngIf= "this.reminderObject.easteregg">
+    <span aria-hidden="true">LOADING....</span>
+    LOADING...
+    <span aria-hidden="true">LOADING....</span>
+  </h1>
+  <!--__________EASTEREGG to deactivate only need to Refresh the Site________________-->
+
   <div class = "delete">
     <input type="checkbox"
     (change)="deleteReminder()">
   </div>
-  <div class= "name">
+  <div class= "name" >
     <input
     #myInput
     type="text"

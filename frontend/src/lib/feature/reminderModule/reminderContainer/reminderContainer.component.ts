@@ -20,7 +20,6 @@ export class reminderContainerComponent {
   createNewReminder(): void {
     let newReminder: Reminder = { title: '', position: 0, date:""};
     this.newReminderIndex = this.reminders.push(newReminder) -1;
-
     newReminder.position = (this.newReminderIndex === 0)? 1 : this.reminders[this.newReminderIndex -1].position + 1;
 
     this.backendService
