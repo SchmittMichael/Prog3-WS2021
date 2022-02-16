@@ -18,6 +18,7 @@ import { Reminder } from '../../../data-access/models/reminder';
 export class ReminderComponent implements AfterViewInit {
   @Input() reminderObject: Reminder;
   @Input() selectedOnCreate: boolean;
+  @Input() listId: number;
   @Output() clickDeleteEvent = new EventEmitter<number>();
 
   @ViewChild('myInput') myInput: ElementRef;
@@ -58,16 +59,21 @@ export class ReminderComponent implements AfterViewInit {
     this.clickDeleteEvent.emit(this.reminderObject.id);
   }
 
-  editName(event: any): void {
+  editTitle(event: any): void {
     this.reminderObject.title = event.target.value;
-    this.backendService.updateReminder(this.reminderObject.listId, this.reminderObject)
+    this.backendService.updateReminder(this.listId, this.reminderObject).subscribe();
   }
 
-  editDate(event: any): void {}
+  editDate(event: any): void {
+    let d:Date = event.target.value;
+    this.reminderObject.date= event.target.value;
+    this.backendService.updateReminder(this.listId, this.reminderObject).subscribe();
+
+    console.log(d.toLocaleString)
+  }
 
   editFlag(event: any): void {
-    console.log('flagged');
     this.reminderObject.flag = this.reminderObject.flag ? false : true;
-
+    this.backendService.updateReminder(this.listId, this.reminderObject).subscribe();
   }
 }

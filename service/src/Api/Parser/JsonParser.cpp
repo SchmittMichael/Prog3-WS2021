@@ -81,7 +81,7 @@ std::optional<Reminder> JsonParser::convertReminderToModel(int reminderId, std::
     if (true == isValidReminder(document)) {
         std::string title = document["title"].GetString();
         int position = document["position"].GetInt();
-        long date = document["date"].GetInt64();
+        std::string date = document["date"].GetString();
         bool flag = document["flag"].GetBool();
         resultReminder = Reminder(reminderId, title, position, date, flag);
     }
@@ -102,7 +102,7 @@ rapidjson::Value JsonParser::getJsonValueFromModel(Reminder const &reminder, rap
     jsonReminder.AddMember("id", reminder.getId(), allocator);
     jsonReminder.AddMember("title", Value(reminder.getTitle().c_str(), allocator), allocator);
     jsonReminder.AddMember("position", reminder.getPos(), allocator);
-    jsonReminder.AddMember("date", reminder.getDate(), allocator);
+    jsonReminder.AddMember("date", Value(reminder.getDate().c_str(), allocator), allocator);
     jsonReminder.AddMember("flag", reminder.getFlag(), allocator);
 
     return jsonReminder;

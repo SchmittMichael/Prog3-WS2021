@@ -214,14 +214,14 @@ std::optional<Reminder> SQLiteRepository::getReminder(int listId, int reminderId
     }
 }
 
-std::optional<Reminder> SQLiteRepository::postReminder(int listId, std::string title, int position, time_t date, bool flag) {
+std::optional<Reminder> SQLiteRepository::postReminder(int listId, std::string title, int position, std::string date, bool flag) {
 
   short flagInBin = flag? 1: 0;
 
      string sqlPostReminder =
         "INSERT INTO reminder ('title', 'date', 'position', 'list_id', 'flag') "
         "VALUES ('" +
-        title + "', '" + to_string(date) + "', '" + to_string(position) + "', '" + to_string(listId) + "', '" + to_string(flagInBin) + "')";
+        title + "', '" + date + "', '" + to_string(position) + "', '" + to_string(listId) + "', '" + to_string(flagInBin) + "')";
       //VALUES ('title', 'date', 'position', 'listId', 'flagInBin' )
 
 
@@ -239,12 +239,12 @@ std::optional<Reminder> SQLiteRepository::postReminder(int listId, std::string t
     return getReminder(listId, reminderId);
 }
 
-std::optional<ReminderApp::Core::Model::Reminder> SQLiteRepository::putReminder(int listId, int reminderId, std::string title, int position, time_t date, bool flag) {
+std::optional<ReminderApp::Core::Model::Reminder> SQLiteRepository::putReminder(int listId, int reminderId, std::string title, int position, std::string date, bool flag) {
 
     short flagInBin = flag? 1: 0;
 
     string sqlUpdateReminder =
-        "UPDATE reminder SET title = '" + title + "', position = '" + to_string(position) + "', date = '" + to_string(date) + "', flag = '" + to_string(flagInBin) + "' "
+        "UPDATE reminder SET title = '" + title + "', position = '" + to_string(position) + "', date = '" + date + "', flag = '" + to_string(flagInBin) + "' "
         "WHERE reminder.list_id = " + to_string(listId) + " AND reminder.id = " + to_string(reminderId);
 
     int result = 0;
@@ -282,7 +282,7 @@ Reminder SQLiteRepository::getReminderFromCallback(char **fieldValues, int start
     int position = fieldValues[index] ? atoi(fieldValues[index]) : 0;
     index++;
 
-    time_t date = fieldValues[index] ? atoi(fieldValues[index]) : 0;
+    string date = fieldValues[index] ? fieldValues[index] : "";
     index++;
 
     int temp = fieldValues[index] ? atoi(fieldValues[index])  : 0;

@@ -13,6 +13,7 @@
           (clickDeleteEvent)="deleteReminder($event)"
           [reminderObject]="reminder"
           [selectedOnCreate]="newReminderIndex === i"
+          [listId]="this.id"
         ></reminder>
       </li>
     </ul>

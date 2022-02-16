@@ -40,8 +40,8 @@ class SQLiteRepository : public RepositoryIf {
     virtual void deleteList(int id);
     virtual std::vector<ReminderApp::Core::Model::Reminder> getReminders(int listId);
     virtual std::optional<ReminderApp::Core::Model::Reminder> getReminder(int listId, int reminderId);
-    virtual std::optional<ReminderApp::Core::Model::Reminder> postReminder(int listId, std::string title, int position, time_t date, bool falg);
-    virtual std::optional<ReminderApp::Core::Model::Reminder> putReminder(int listId, int reminderId, std::string title, int position, time_t date, bool flag);
+    virtual std::optional<ReminderApp::Core::Model::Reminder> postReminder(int listId, std::string title, int position, std::string date, bool falg);
+    virtual std::optional<ReminderApp::Core::Model::Reminder> putReminder(int listId, int reminderId, std::string title, int position, std::string date, bool flag);
     virtual void deleteReminder(int columnId, int itemId);
 
     static inline std::string const listContainerName = "DefaultListContainer";

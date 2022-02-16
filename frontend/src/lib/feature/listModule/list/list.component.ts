@@ -40,7 +40,7 @@ export class ListComponent implements AfterViewInit {
     this.clickDeleteEvent.emit(this.listObject.id);
   }
 
-  editTitle(event: any): void {
+  editName(event: any): void {
     this.listObject.name = event.target.value;
 
     this.backendService.updateList(this.listObject).subscribe();

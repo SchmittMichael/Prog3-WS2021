@@ -1,6 +1,5 @@
 #pragma ocnce
 
-#include <ctime>
 #include <string>
 
 namespace ReminderApp {
@@ -8,19 +7,19 @@ namespace Core {
 namespace Model {
 class Reminder {
   public:
-    Reminder(int id, std::string title, int position, time_t date, bool flag);
+    Reminder(int id, std::string title, int position, std::string date, bool flag);
     ~Reminder(){};
 
     int getId() const;
     std::string getTitle() const;
     int getPos() const;
-    time_t getDate() const;
+    std::string  getDate() const;
     bool getFlag() const;
 
     void setID(int newID);
     void setTitle(std::string newTitle);
     void setPos(int newPos);
-    void setDate(time_t newDate);
+    void setDate(std::string date);
     void setFlag(bool newFlagStatus);
 
   private:
@@ -28,7 +27,7 @@ class Reminder {
     std::string title;
     int position;
     bool flag;
-    time_t date;
+    std::string date;
 };
 
 } // namespace Model
