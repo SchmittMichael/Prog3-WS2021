@@ -19,9 +19,15 @@
     (change)="editDate($event)"
     >
   </div><!--changed second getTitle() to getDate() + changed second editName() to editDate()-->
-  <div class="flag">
-    <input type="checkbox"
-    (change)="editFlag($event)">
+
+  <div class="flag" (click)="editFlag()">
+  <div id="redflag" *ngIf= "this.reminderObject.flag">
+    <input type="image" src="../../../../assets/Flagnorm.png" name="submit" width="1.5" height="1.5"/>
   </div>
+
+  <div id="greyflag" *ngIf="!this.reminderObject.flag">
+    <input type="image" src="../../../../assets/Flagnorm.png" name="submit" width="1.5" height="1.5"/>
+  </div>
+
 
 </div>

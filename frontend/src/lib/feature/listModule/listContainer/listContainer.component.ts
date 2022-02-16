@@ -54,8 +54,6 @@ export class ListContainerComponent implements OnInit {
     else this.view = currentList;
   }
   showFlaggedCount(): number {
-
-    //<div id="remindCount"> {{showFlaggedCount()}}</div>
 /*
     this.lcObject.lists.forEach(List  => {
       List.getRemCon.getReminders.forEach(Reminder => {

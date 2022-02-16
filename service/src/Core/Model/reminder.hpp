@@ -1,4 +1,4 @@
-#pragma ocnce
+#pragma once
 
 #include <string>
 
@@ -13,7 +13,7 @@ class Reminder {
     int getId() const;
     std::string getTitle() const;
     int getPos() const;
-    std::string  getDate() const;
+    std::string getDate() const;
     bool getFlag() const;
 
     void setID(int newID);

@@ -130,11 +130,9 @@
 }
 
 .reminder .flag {
-  left: 100vw;
   position: relative;
-  /*right: 5%;
-  left: 75%;*/
-  top: 0vh;
+  top: 0;
+  margin-bottom: 3vh;
   cursor: pointer;
   display: inline-block;
   color: rgb(255, 255, 255);
@@ -143,22 +141,21 @@
   outline: none;
 }
 
-.reminder .flag [type='checkbox']::before {
-  left: -95vw;
+.reminder .flag #greyflag {
   content: '';
   position: absolute;
   background: url('../../../../assets/Flagnorm.png') no-repeat;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   outline: 2px solid transparent; //make black for checkbox
   background-size: 90%;
 }
 
-.reminder .flag [type='checkbox']:checked::before {
+.reminder .flag #redflag {
   position: absolute;
   background: url('../../../../assets/Flagselec.png') no-repeat;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   outline: 2px solid transparent; //make black for checkbox
   background-size: 90%;
 }

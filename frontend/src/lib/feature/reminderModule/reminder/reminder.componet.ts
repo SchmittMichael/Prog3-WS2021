@@ -69,7 +69,7 @@ export class ReminderComponent implements AfterViewInit {
     this.backendService.updateReminder(this.listId, this.reminderObject).subscribe();
   }
 
-  editFlag(event: any): void {
+  editFlag(): void {
     this.reminderObject.flag = this.reminderObject.flag ? false : true;
     this.backendService.updateReminder(this.listId, this.reminderObject).subscribe();
   }

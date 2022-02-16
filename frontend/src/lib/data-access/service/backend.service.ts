@@ -1,9 +1,9 @@
-import{ HttpClient  } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {  Observable  } from 'rxjs';
-import { List} from '../models/list';
-import { Reminder } from '../models/reminder';
+import { Observable } from 'rxjs';
+import { List } from '../models/list';
 import { ListContainer } from '../models/listContainer';
+import { Reminder } from '../models/reminder';
 
 
 @Injectable({
