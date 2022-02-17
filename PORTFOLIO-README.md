@@ -1,7 +1,7 @@
 # Browsers:
-Safari  (Supported) ✅
-Chrome  (Supported) ✅
-Firefox (Semi-Supported) ☑️
+####Safari  (Supported) ✅
+####Chrome  (Supported) ✅
+####Firefox (Semi-Supported) ☑️
 
 # recommended Browser: Chrome ✅
 
