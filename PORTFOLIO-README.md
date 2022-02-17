@@ -25,13 +25,13 @@
  - Listname for List
 
 - ### ***->Additional Features***
- - Get all flagged Reminders
+                      - Get all flagged Reminders
  - Get all Reminders for Today
 
 
 
 # About the project:
-This Project includes all contains all demanded contents including the `additional` features (FlaggedList-Button,TodayList-Button).
+This Project contains all demanded contents including the `additional` features (FlaggedList-Button,TodayList-Button).
 Software errors in Front- and Backend are not known.
 Easteregg: Try to create a List --> create a Reminder --> Type in: "easteregg" 😉
 (to undo Easteregg refresh Site or delete the Reminder)
