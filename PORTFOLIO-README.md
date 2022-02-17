@@ -25,7 +25,7 @@
  - Listname for List
 
 - ### ***->Additional Features***
-                      - Get all flagged Reminders
+- - Get all flagged Reminders
  - Get all Reminders for Today
 
 
