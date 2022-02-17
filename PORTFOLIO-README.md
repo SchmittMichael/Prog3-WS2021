@@ -7,24 +7,24 @@
 
 # Features:
 
-- ## Lists
+- ### Lists
 - Creating Lists 
 - Deleting Lists 
 - Add List Name  
 - Remindercounter on List 
 
-- ## Reminders
+- ### Reminders
 - Creating Reminders 
 - Deleting Reminders 
 - Add Remindercontent 
 - Add Reminderdate
 - Set Reminderflag
 
-- ## Layout
+- ### Layout
 - ReminderCounter for List
 - Listname for List
 
-- ## Additional Features
+- ### Additional Features
 - Get all flagged Reminders
 - Get all Reminders for Today
 
