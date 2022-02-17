@@ -68,35 +68,5 @@ export class ListContainerComponent implements OnInit {
     }
     else this.view = currentList;
   }
-<<<<<<< HEAD
-=======
-
-  createFlaggedList(): void {
-
-    let newList: List = { name: "Flagged Reminders", position: 0, reminders:[]};
-
-    this.newListIndex = this.lcObject.lists.push(newList) - 1;
-
-    newList.position = (this.newListIndex === 0)? 1 : this.lcObject.lists[this.newListIndex -1].position+1;
-
-    this.backendService.createList(newList).subscribe((list) => {
-      newList.id = list.id;
-      newList.position = list.position;
-    });
-
-
-
-    //manager code
-
-  }
-
-
-  showFlaggedCount(): number {
-/*
-    this.lcObject.lists.forEach(List  => {
-      List.getRemCon.getReminders.forEach(Reminder => {
-      if(Reminder.getFlag == true){this.flagedcount ++;}
-    });
->>>>>>> 1ee6dbb117b3f54d019908040e32e8bbd028641d
 
 }
