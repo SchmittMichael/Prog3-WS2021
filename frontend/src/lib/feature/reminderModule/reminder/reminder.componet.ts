@@ -20,6 +20,7 @@ export class ReminderComponent implements AfterViewInit {
   @Input() selectedOnCreate: boolean;
   @Input() listId: number;
   @Output() clickDeleteEvent = new EventEmitter<number>();
+  @Output() update_TF_Event = new EventEmitter<Reminder[]>();
 
   @ViewChild('myInput') myInput: ElementRef;
 
@@ -68,10 +69,16 @@ export class ReminderComponent implements AfterViewInit {
   editDate(event: any): void {
     this.reminderObject.date= event.target.value;
     this.backendService.updateReminder(this.listId, this.reminderObject).subscribe();
+
+    
   }
 
   editFlag(): void {
     this.reminderObject.flag = this.reminderObject.flag ? false : true;
     this.backendService.updateReminder(this.listId, this.reminderObject).subscribe();
+
+    let flaguptdate:Reminder[];
+    flaguptdate[1] =this.reminderObject;
+    this.update_TF_Event.emit(flaguptdate)
   }
 }

@@ -42,7 +42,6 @@ export class ListComponent implements AfterViewInit {
 
   editName(event: any): void {
     this.listObject.name = event.target.value;
-
     this.backendService.updateList(this.listObject).subscribe();
   }
 

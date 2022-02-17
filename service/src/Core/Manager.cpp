@@ -101,6 +101,15 @@ std::string Manager::getReminder(int listId, int reminderId) {
 
 }
 
+std::string Manager::getFlaggedReminders() {
+   std::optional<List> list = repository.getFlagged();
+        if (list) {
+            return parser.convertToApiString(list.value());
+        } else {
+            return parser.getEmptyResponseString();
+        }
+}
+
 std::string Manager::postReminder(int listId, std::string request) {
 
       int const dummyId = -1;

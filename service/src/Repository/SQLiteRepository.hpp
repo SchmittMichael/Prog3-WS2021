@@ -38,6 +38,7 @@ class SQLiteRepository : public RepositoryIf {
     virtual std::optional<ReminderApp::Core::Model::List> postList(std::string name, int position);
     virtual std::optional<ReminderApp::Core::Model::List> putList(int id, std::string name, int position);
     virtual void deleteList(int id);
+    virtual std::optional<ReminderApp::Core::Model::List> getFlagged();
     virtual std::vector<ReminderApp::Core::Model::Reminder> getReminders(int listId);
     virtual std::optional<ReminderApp::Core::Model::Reminder> getReminder(int listId, int reminderId);
     virtual std::optional<ReminderApp::Core::Model::Reminder> postReminder(int listId, std::string title, int position, std::string date, bool falg);

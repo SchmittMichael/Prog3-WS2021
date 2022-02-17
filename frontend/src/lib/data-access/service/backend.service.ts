@@ -19,6 +19,10 @@ export class BackendService {
     return this.httpClient.get<ListContainer>(this.url + '/api/lc');
   }
 
+  loadFlaggedReminders(): Observable<List> {
+    return this.httpClient.get<List>(this.url + '/api/lc/flagged/reminders');
+  }
+
   createList(list: List): Observable<List> {
       let listPayload = {
         ...list,
@@ -70,5 +74,7 @@ export class BackendService {
       this.url + '/api/lc/lists/'+listId +'/reminders/'+ reminder.id, reminderPayload
     );
   }
+
+
 
 }

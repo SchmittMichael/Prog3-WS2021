@@ -74,15 +74,15 @@ void Endpoint::registerRoutes() {
 
     CROW_ROUTE(app, "/api/lc/lists/<int>/reminders")
         .methods("GET"_method, "POST"_method)([this](const request &req, response &res, int listID) {
-            std::string jsonItem;
+            std::string jsonReminder;
 
             switch (req.method) {
             case HTTPMethod::Get: {
-                jsonItem = manager.getReminders(listID);
+                jsonReminder = manager.getReminders(listID);
                 break;
             }
             case HTTPMethod::Post: {
-                jsonItem = manager.postReminder(listID, req.body);
+                jsonReminder = manager.postReminder(listID, req.body);
                 res.code = 201;
                 break;
             }
@@ -91,21 +91,42 @@ void Endpoint::registerRoutes() {
             }
             }
 
-            res.write(jsonItem);
+            res.write(jsonReminder);
             res.end();
         });
 
-    CROW_ROUTE(app, "/api/lc/lists/<int>/reminders/<int>")
-        .methods("GET"_method, "PUT"_method, "DELETE"_method)([this](const request &req, response &res, int listID, int reminderID) {
-            std::string jsonItem;
+
+    CROW_ROUTE(app, "/api/lc/flagged/reminders")
+      .methods("GET"_method, "PUT"_method, "DELETE"_method)([this](const request &req, response &res) {
+
+            std::string jsonFlagged;
 
             switch (req.method) {
             case HTTPMethod::Get: {
-                jsonItem = manager.getReminder(listID, reminderID);
+                jsonFlagged = manager.getFlaggedReminders();
+                break;
+            }
+            default: {
+                break;
+            }
+            }
+
+            res.write(jsonFlagged);
+            res.end();
+        });
+
+
+    CROW_ROUTE(app, "/api/lc/lists/<int>/reminders/<int>")
+        .methods("GET"_method, "PUT"_method, "DELETE"_method)([this](const request &req, response &res, int listID, int reminderID) {
+            std::string jsonReminder;
+
+            switch (req.method) {
+            case HTTPMethod::Get: {
+                jsonReminder = manager.getReminder(listID, reminderID);
                 break;
             }
             case HTTPMethod::Put: {
-                jsonItem = manager.putReminder(listID, reminderID, req.body);
+                jsonReminder = manager.putReminder(listID, reminderID, req.body);
                 break;
             }
             case HTTPMethod::Delete: {
@@ -117,7 +138,7 @@ void Endpoint::registerRoutes() {
             }
             }
 
-            res.write(jsonItem);
+            res.write(jsonReminder);
             res.end();
         });
 }

@@ -36,3 +36,7 @@ void List::setPos(int newPos) {
 void List::addReminder(Reminder &newReminder) {
     reminders.push_back(newReminder);
 }
+
+void List::setReminders(std::vector<Reminder> newReminders){
+  reminders = newReminders;
+}

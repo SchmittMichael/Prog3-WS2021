@@ -23,6 +23,7 @@ class Manager {
 
     std::string getReminders(int listId);
     std::string getReminder(int listId, int reminderId);
+    std::string getFlaggedReminders();
     std::string postReminder(int listId, std::string request);
     std::string putReminder(int listId, int reminderId, std::string request);
     void deleteReminder(int listId, int reminderId);

@@ -189,6 +189,27 @@ std::vector<Reminder> SQLiteRepository::getReminders(int listId) {
     return reminders;
 }
 
+std::optional<List> SQLiteRepository::getFlagged() {
+
+    std::vector<Reminder> reminders;
+
+    string sqlQueryReminders =
+        "SELECT reminder.id, reminder.title, reminder.position, reminder.date, reminder.flag from reminder "
+        "where reminder.flag = 1 "
+        "order by reminder.date";
+
+    int result = 0;
+    char *errorMessage = nullptr;
+
+    result = sqlite3_exec(database, sqlQueryReminders.c_str(), queryRemindersCallback, &reminders, &errorMessage);
+    handleSQLError(result, errorMessage);
+
+    List flagged(-2, "Flagged", -2);
+    flagged.setReminders(reminders);
+
+    return flagged;
+}
+
 std::optional<Reminder> SQLiteRepository::getReminder(int listId, int reminderId) {
 
     std::vector<Reminder> reminders;

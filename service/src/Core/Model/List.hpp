@@ -24,6 +24,7 @@ class List {
     void setName(std::string newName);
     void setPos(int newPos);
     void addReminder(Reminder &newReminder);
+    void setReminders(std::vector<Reminder> reminders);
 
   private:
     int id;

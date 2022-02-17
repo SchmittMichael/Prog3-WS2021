@@ -16,6 +16,7 @@ class RepositoryIf {
     virtual std::optional<ReminderApp::Core::Model::List> postList(std::string name, int position) = 0;
     virtual std::optional<ReminderApp::Core::Model::List> putList(int id, std::string name, int position) = 0;
     virtual void deleteList(int id) = 0;
+    virtual std::optional<ReminderApp::Core::Model::List> getFlagged() = 0;
     virtual std::vector<ReminderApp::Core::Model::Reminder> getReminders(int listId) = 0;
     virtual std::optional<ReminderApp::Core::Model::Reminder> getReminder(int listId, int reminderId) = 0;
     virtual std::optional<ReminderApp::Core::Model::Reminder> postReminder(int listId, std::string title, int position, std::string date, bool flag) = 0;

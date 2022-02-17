@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { BackendService } from 'src/lib/data-access/service/backend.service';
 import { Reminder } from '../../../data-access/models/reminder';
 
@@ -11,6 +11,7 @@ export class reminderContainerComponent {
   @Input() reminders: Reminder[];
   @Input() name: string;
   @Input() id: number;
+
 
   selectedObject: Reminder;
   newReminderIndex: number;
