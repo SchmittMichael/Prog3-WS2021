@@ -1,6 +1,7 @@
 .list {
+  text-align: center;
   position: relative;
-  width: 100%;
+  width: 85%;
   height: 70px;
   background-color: white;
   display: flex;
@@ -18,35 +19,6 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.list #symbol {
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  width: 10%;
-  position: relative;
-}
-
-.list #symbol #box {
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  border-radius: 5px 0px 0px 5px;
-}
-
-.list #symbol #kreis {
-  top: 45%;
-  left: 45%;
-  width: 7px;
-  height: 7px;
-  border-radius: 7px;
-  background-color: #ffffff;
-  position: absolute;
-  z-index: 2;
-}
-
 .list #count {
   top: 0;
   right: 0;
@@ -61,5 +33,4 @@
   border: none;
   font-size: 1.5em;
   font-weight: 700;
-  width: 72%;
 }
