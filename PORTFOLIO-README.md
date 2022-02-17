@@ -32,9 +32,9 @@
 
 # About the project:
 This Project contains all demanded contents including the `additional` features (FlaggedList-Button,TodayList-Button).
-Software errors in Front- and Backend are not known.
-Easteregg: Try to create a List --> create a Reminder --> Type in: "easteregg" 😉
-(to undo Easteregg refresh Site or delete the Reminder)
+<br> Software errors in Front- and Backend are not known.
+<br>Easteregg: Try to create a List --> create a Reminder --> Type in: "easteregg" 😉
+<br>(to undo Easteregg refresh Site or delete the Reminder)
 
 
 Created by [Michael](https://github.com/SchmittMichael) and [Marco](https://github.com/Marco-Wanka)
