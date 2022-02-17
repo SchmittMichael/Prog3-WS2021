@@ -110,6 +110,15 @@ std::string Manager::getFlaggedReminders() {
         }
 }
 
+std::string Manager::getTodayReminders() {
+   std::optional<List> list = repository.getToday();
+        if (list) {
+            return parser.convertToApiString(list.value());
+        } else {
+            return parser.getEmptyResponseString();
+        }
+}
+
 std::string Manager::postReminder(int listId, std::string request) {
 
       int const dummyId = -1;

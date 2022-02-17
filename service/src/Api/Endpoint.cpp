@@ -116,6 +116,27 @@ void Endpoint::registerRoutes() {
         });
 
 
+    CROW_ROUTE(app, "/api/lc/today/reminders")
+      .methods("GET"_method, "PUT"_method, "DELETE"_method)([this](const request &req, response &res) {
+
+            std::string jsonToday;
+
+            switch (req.method) {
+            case HTTPMethod::Get: {
+                jsonToday = manager.getTodayReminders();
+                break;
+            }
+            default: {
+                break;
+            }
+            }
+
+            res.write(jsonToday);
+            res.end();
+        });
+
+
+
     CROW_ROUTE(app, "/api/lc/lists/<int>/reminders/<int>")
         .methods("GET"_method, "PUT"_method, "DELETE"_method)([this](const request &req, response &res, int listID, int reminderID) {
             std::string jsonReminder;

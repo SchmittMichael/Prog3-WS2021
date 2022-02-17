@@ -210,6 +210,39 @@ std::optional<List> SQLiteRepository::getFlagged() {
     return flagged;
 }
 
+std::optional<List> SQLiteRepository::getToday() {
+
+    std::vector<Reminder> reminders;
+
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+    string currentDate = to_string(1900 + ltm->tm_year) + "-";
+    string month = to_string(ltm->tm_mon+1);
+    string day = to_string(ltm->tm_mday);
+
+    if(month.length() == 1) month = "0" + month;
+    if(day.length() == 1) day = "0" + day;
+
+    currentDate += month+"-"+day;
+
+    string sqlQueryReminders =
+        "SELECT reminder.id, reminder.title, reminder.position, reminder.date, reminder.flag from reminder "
+        "where reminder.date = '" + currentDate +
+        "' order by reminder.list_id";
+
+    int result = 0;
+    char *errorMessage = nullptr;
+
+    result = sqlite3_exec(database, sqlQueryReminders.c_str(), queryRemindersCallback, &reminders, &errorMessage);
+    handleSQLError(result, errorMessage);
+
+    List today(-1, "Today", -1);
+    today.setReminders(reminders);
+
+    return today;
+}
+
+
 std::optional<Reminder> SQLiteRepository::getReminder(int listId, int reminderId) {
 
     std::vector<Reminder> reminders;

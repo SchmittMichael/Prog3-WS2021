@@ -1,10 +1,18 @@
 <div class="listContainer">
   <div class="header">
     <h1>My Reminder</h1>
-  <div class="todaybutton" title="Today"(click)="createNewList()" >
+
+  <div class="todaybutton" title="Today"(click)="changeViewToToday()" >
     <p>Today</p>
-  <div>??</div>
+    <div>{{this.today.reminders.length}}</div>
+    <reminderContainer
+      [reminders]="this.today.reminders"
+      [name]="this.today.name"
+      [id]="this.today.id"
+      *ngIf="this.today.position == 1">
+    </reminderContainer>
   </div>
+
   <div class="flaggedbutton" title="Flagged"(click)="changeViewToFlagged()">
     <p>Flagged</p>
     <div>{{this.flagged.reminders.length}}</div>

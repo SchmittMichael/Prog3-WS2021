@@ -24,9 +24,11 @@ export class ListContainerComponent implements OnInit {
     this.lcObject = {name:"OfflineLc", lists:[]};   //Fix dafür dass er nicht jedes mal die Konsole volspamt mit "ERROR TypeError: Cannot read properties of undefined (reading 'lists')"
     this.backendService.loadListContainer().subscribe( (lc:ListContainer) => (this.lcObject = lc));
 
-    this.flagged={name:"OfflineFlagged", reminders:[]}
-    this.backendService.loadFlaggedReminders().subscribe( (lc:List) => this.flagged = lc);
+    this.flagged = {name:"OfflineFlagged", reminders:[]}
+    this.backendService.loadFlaggedReminders().subscribe( (flagged:List) => this.flagged = flagged);
 
+    this.today = {name:"OfflineToday", reminders:[]}
+    this.backendService.loadTodayReminders().subscribe( (today:List) => this.today = today);
   }
 
   createNewList(): void {
@@ -51,13 +53,15 @@ export class ListContainerComponent implements OnInit {
   }
 
   changeViewToFlagged(){
-    for(let i =0;i<this.flagged.reminders.length; i++){
-      console.log(i)
-      console.log(this.flagged.reminders[i].title)
-    }
-
     if(this.view != undefined) this.view.setViewFalse();
+    this.today.position = 0;
     this.flagged.position = 1;
+  }
+
+  changeViewToToday(){
+    if(this.view != undefined) this.view.setViewFalse();
+    this.flagged.position = 0;
+    this.today.position = 1;
   }
 
   currentView(currentList: ListComponent): void{
