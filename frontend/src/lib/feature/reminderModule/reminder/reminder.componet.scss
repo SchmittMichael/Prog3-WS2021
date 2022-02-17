@@ -16,7 +16,6 @@
   border-right: transparent;
   border-width: 5px;
   border-style: solid;
-
   input {
     outline: none;
   }
@@ -103,6 +102,7 @@
 .reminder .flag {
   position: relative;
   top: 0;
+  margin-right: 10%;
   margin-bottom: 3vh;
   cursor: pointer;
   display: inline-block;
