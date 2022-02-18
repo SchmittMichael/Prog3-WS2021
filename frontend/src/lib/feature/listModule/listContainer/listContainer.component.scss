@@ -2,27 +2,20 @@
   left: 0.75%;
   top: 1.5%;
   bottom: 1%; // trying design optimization
-
-  //scrollfix
-  overflow: hidden;
+  overflow: hidden;//scrollfix
   position: fixed;
-
-  position: relative;
   width: 25%;
   height: 100%;
   background-color: #dddddd;
-  display: flex;
   border-radius: 5px;
   transition: box-shadow 0.1s;
   margin-bottom: 10px;
   text-align: center;
+  display: inline-block;
 }
 
 .listContainer .header {
-  text-align: center;
   height: 56px;
-  margin: 10px auto;
-  text-align: center;
   font-family: 'Times New Roman', Times, serif;
   color: rgb(0, 0, 0);
   font-weight: 600;
@@ -35,7 +28,6 @@
   display: inline-block;
   margin: 10px;
   padding: 5px;
-  text-align: center;
 }
 .listContainer .header .flaggedbutton {
   width: 7vw;
@@ -44,38 +36,38 @@
   display: inline-block;
   margin: 10px;
   padding: 5px;
-  text-align: center;
 }
+
+
 .listContainer #body {
   position: relative;
+  overflow-x: hidden;
+  background-color: transparent;
+  height: 65vh; // list container scaled size
   @media screen and (orientation: landscape) and (max-device-width: 1024px) {
     max-height: 50vh;
   }
   @media not screen and (orientation: landscape) and (max-device-width: 1024px) {
     max-height: 75vh;
   }
-
-  height: 65vh; // list container scaled size
-  overflow: auto; // activate scroll for listContainer
-  text-align: center;
 }
 
-.listContainer #body ul {
-  margin-top: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
+
+.listContainer #body ul{
+  align-items: center;
+  position: relative;
+  background-color: transparent;
 }
+
 
 .listContainer #body ul li {
+  background-color: transparent;
   margin-bottom: 12px;
-  display: block;
-  width: 100%;
-  margin-right: 10px;
+  display: inline-block;
+  width: 80%;
 }
 .listContainer .button {
   position: fixed;
-
-  margin: 0;
   bottom: 0%;
   left: 2%;
   transform: translate(-50%, -50%);
