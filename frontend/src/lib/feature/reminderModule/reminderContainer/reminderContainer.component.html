@@ -1,8 +1,8 @@
 <div class="reminderContainer">
   <div id="header">
-    <div id="namebox">{{this.name}}</div>
-    <div id="remindCount"> {{this.reminders.length}}</div>
-    <div class="circle"></div>
+    <div id="namebox" title="LIST NAME">{{this.name}}</div>
+    <div id="remindCount" title="REMINDER COUNT"> {{this.reminders.length}}</div>
+    <div class="circle" ></div>
 
   </div>
 
@@ -18,7 +18,7 @@
       </li>
     </ul>
   </div>
-  <div class="button" (click)="createNewReminder()">
+  <div class="button" title="ADD REMINDER"(click)="createNewReminder()">
       <input type="image" src="../assets/plus-white.png" name="submit" width="25" height="25"/>
     </div>
 </div>

@@ -8,13 +8,14 @@
   </h1>
   <!--__________EASTEREGG to deactivate only need to Refresh the Site________________-->
 
-  <div class = "delete">
+  <div class = "delete" title="DELETE REMINDER">
     <input type="checkbox"
     (change)="deleteReminder()">
   </div>
   <div class= "name" >
     <input
     #myInput
+    title="CHANGE TITLE"
     type="text"
     value = "{{this.reminderObject.title}}"
     (change)="editTitle($event)"
@@ -23,18 +24,19 @@
   </div>
   <div class= "date">
    <input
+    title="CHANGE DATE"
     type="date"
     value = "{{ this.reminderObject.date}}"
     (change)="editDate($event)"
     >
   </div><!--changed second getTitle() to getDate() + changed second editName() to editDate()-->
 
-  <div class="flag" (click)="editFlag()">
-  <div id="redflag" *ngIf= "this.reminderObject.flag">
+  <div class="flag"  (click)="editFlag()">
+  <div id="redflag" title="UNFLAG REMINDER" *ngIf= "this.reminderObject.flag">
     <input type="image" src="../../../../assets/Flagnorm.png" name="submit" width="1.5" height="1.5"/>
   </div>
 
-  <div id="greyflag" *ngIf="!this.reminderObject.flag">
+  <div id="greyflag" title="FLAG REMINDER" *ngIf="!this.reminderObject.flag">
     <input type="image" src="../../../../assets/Flagnorm.png" name="submit" width="1.5" height="1.5"/>
   </div>
 

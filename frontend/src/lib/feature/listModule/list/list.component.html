@@ -1,14 +1,15 @@
 <div class="list" (click)="showRemCon()">
-  <div id="delete" (click)="clickEvent()" >
+  <div id="delete" title="DELETE LIST" (click)="clickEvent()" >
    <input type="image" src="../.././../../assets/trashcan.png" width="15vw" height="15vw">
   </div>
   <input
     #myInput
+    title="LIST NAME"
     type="text"
     [value]="this.listObject.name"
     (change)="editName($event)"
   >
-  <div id="count">{{showRemConCount()}}</div>
+  <div id="count" title="REMINDER COUNT">{{showRemConCount()}}</div>
   <reminderContainer
   [reminders]="listObject.reminders"
   [name]="listObject.name"
