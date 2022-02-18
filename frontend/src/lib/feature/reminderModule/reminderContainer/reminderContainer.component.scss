@@ -1,29 +1,25 @@
 .reminderContainer {
-  position: relative;
+  position: fixed;
   min-height: 160px;
   width: 74vw;
   height: 100vh;
-  margin-left: 6.3vw;
+  margin:0;
+  right: 0.5%;
   display: inline-block;
   background-color: transparent;
   font-weight: 600;
-  overflow: auto;
-  overflow-x: hidden;
-  //scrollfix + sizingfix
+
   overflow: hidden;
-  position: fixed;
   top: -0.08vh;
 }
 
 .reminderContainer #header {
-  position: absolute;
   height: 56px;
   width: 100%;
 }
 
 .reminderContainer #header #namebox {
   margin-left: 3vw;
-  position: absolute;
   text-align: left;
   font-size: 1.6em;
   font-weight: 400;
@@ -59,16 +55,19 @@
 }
 
 .reminderContainer #body {
-  position: relative;
-  overflow: auto;
   margin-top: 15vh;
   overflow-x: hidden;
+  overflow: auto;
   @media screen and (orientation: landscape) and (max-device-width: 1024px) {
     max-height: 50vh;
   }
   @media not screen and (orientation: landscape) and (max-device-width: 1024px) {
     max-height: 75vh;
   }
+
+}
+.reminderContainer #body::-webkit-scrollbar {
+  display: none;
 }
 
 .reminderContainer #body ul li {
@@ -90,7 +89,6 @@
 .reminderContainer .button {
   position: fixed;
   transition: box-shadow 0.1s;
-  margin: 0;
   bottom: 0%;
   right: 0%;
   transform: translate(-50%, -50%);
