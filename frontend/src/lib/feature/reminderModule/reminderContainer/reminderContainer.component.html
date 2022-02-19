@@ -11,6 +11,7 @@
       <li *ngFor="let reminder of reminders; let i = index">
         <reminder
           (clickDeleteEvent)="deleteReminder($event)"
+          (update_TF_Event)="this.update_TF_Event.emit($event)"
           [reminderObject]="reminder"
           [selectedOnCreate]="newReminderIndex === i"
           [listId]="this.id"

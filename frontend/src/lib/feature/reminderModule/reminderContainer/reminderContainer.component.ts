@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BackendService } from 'src/lib/data-access/service/backend.service';
 import { Reminder } from '../../../data-access/models/reminder';
 
@@ -11,6 +11,8 @@ export class reminderContainerComponent {
   @Input() reminders: Reminder[];
   @Input() name: string;
   @Input() id: number;
+
+  @Output() update_TF_Event = new EventEmitter<Reminder[]>();
 
 
   selectedObject: Reminder;
@@ -33,8 +35,6 @@ export class reminderContainerComponent {
   deleteReminder(reminderId: number): void {
     const index = this.reminders.findIndex((reminder) => reminder.id === reminderId);
     this.reminders.splice(index, 1);
-
-    console.log(reminderId)
 
     this.backendService.deleteReminder(this.id, reminderId).subscribe();
   }

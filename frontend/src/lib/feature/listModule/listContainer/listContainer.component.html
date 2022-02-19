@@ -1,6 +1,6 @@
 <div class="listContainer">
   <div class="header">
-    <h1>My Reminder</h1>
+    <h1>{{this.lcObject.name}}</h1>
 
   <div class="todaybutton" title="Today"(click)="changeViewToToday()" >
     <p>Today</p>
@@ -30,6 +30,7 @@
         <list
           (clickDeleteEvent)="deleteList($event)"
           (changeViewEvent)="currentView($event)"
+          (update_TF_Event) = "updateTF($event)"
           [listObject]="list"
           [selectedOnCreate]="newListIndex === i"
         ></list>

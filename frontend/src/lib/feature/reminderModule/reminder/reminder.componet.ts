@@ -19,6 +19,7 @@ export class ReminderComponent implements AfterViewInit {
   @Input() reminderObject: Reminder;
   @Input() selectedOnCreate: boolean;
   @Input() listId: number;
+
   @Output() clickDeleteEvent = new EventEmitter<number>();
   @Output() update_TF_Event = new EventEmitter<Reminder[]>();
 
@@ -46,9 +47,7 @@ export class ReminderComponent implements AfterViewInit {
       await new Promise((resolve) => setTimeout(resolve, 3000));
       if(this.deleteTrigger== true){
         this.clickDeleteEvent.emit(this.reminderObject.id);
-        console.log('delete succesfull');
       }
-      else console.log('delete failed')
     }
   }
 
@@ -67,18 +66,43 @@ export class ReminderComponent implements AfterViewInit {
   }
 
   editDate(event: any): void {
+    const oldDate:string = this.reminderObject.date;
     this.reminderObject.date= event.target.value;
     this.backendService.updateReminder(this.listId, this.reminderObject).subscribe();
 
-    
+    var todayObject = new Date()
+    var todayString = todayObject.getFullYear()+'-';
+    var month =(todayObject.getMonth()+1).toString();
+    var day =todayObject.getDate().toString();
+
+    if(month.length==1) month= '0'+month;
+    if(day.length==1) day= '0'+day;
+    todayString +=month+'-'+day;
+
+    let dateUpdate:Reminder[] =[];
+
+    if(todayString== event.target.value ){
+      dateUpdate[0]=this.reminderObject;
+      this.update_TF_Event.emit(dateUpdate);
+    }
+    else if(oldDate === todayString){
+      dateUpdate[1]=this.reminderObject;
+      this.update_TF_Event.emit(dateUpdate);
+    }
   }
 
   editFlag(): void {
     this.reminderObject.flag = this.reminderObject.flag ? false : true;
     this.backendService.updateReminder(this.listId, this.reminderObject).subscribe();
 
-    let flaguptdate:Reminder[];
-    flaguptdate[1] =this.reminderObject;
-    this.update_TF_Event.emit(flaguptdate)
+    let flagUpdate:Reminder[] =[] ;
+
+    if(this.reminderObject.flag){
+      flagUpdate[2] =this.reminderObject;
+    }
+    else{
+      flagUpdate[3] =this.reminderObject;
+    }
+    this.update_TF_Event.emit(flagUpdate);
   }
 }

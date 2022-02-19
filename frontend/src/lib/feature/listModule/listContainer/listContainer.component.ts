@@ -3,6 +3,7 @@ import { List } from '../../../data-access/models/list';
 import { ListContainer } from '../../../data-access/models/listContainer';
 import { ListComponent } from '../list/list.component';
 import { BackendService } from '../../../data-access/service/backend.service'
+import { Reminder } from 'src/lib/data-access/models/reminder';
 
 @Component({
   selector: 'listContainer',
@@ -21,7 +22,7 @@ export class ListContainerComponent implements OnInit {
   constructor(private backendService: BackendService) {}
 
   ngOnInit(): void {
-    this.lcObject = {name:"OfflineLc", lists:[]};   //Fix dafür dass er nicht jedes mal die Konsole volspamt mit "ERROR TypeError: Cannot read properties of undefined (reading 'lists')"
+    this.lcObject = {name:"Offline Reminder", lists:[]};
     this.backendService.loadListContainer().subscribe( (lc:ListContainer) => (this.lcObject = lc));
 
     this.flagged = {name:"OfflineFlagged", reminders:[]}
@@ -32,6 +33,7 @@ export class ListContainerComponent implements OnInit {
   }
 
   createNewList(): void {
+    console.log(this.lcObject.name)
     let newList: List = { name: "", reminders:[]};
     this.newListIndex = this.lcObject.lists.push(newList) - 1;
 
@@ -52,6 +54,23 @@ export class ListContainerComponent implements OnInit {
     this.backendService.deleteList(listId).subscribe();
   }
 
+  updateTF(input: Reminder[]):void{
+    if(input[0]!=undefined){
+      this.today.reminders.push(input[0]);
+    }
+    else if(input[1]!=undefined){
+      const index = this.today.reminders.findIndex(rem => rem === input[1]);
+      this.today.reminders.splice(index, 1);
+    }
+    else if(input[2]!=undefined){
+      this.flagged.reminders.push(input[2]);
+    }
+    else if(input[3]!=undefined){
+      const index = this.flagged.reminders.findIndex(rem => rem === input[3]);
+      this.flagged.reminders.splice(index, 1);
+    }
+  }
+
   changeViewToFlagged(){
     if(this.view != undefined) this.view.setViewFalse();
     this.today.position = 0;
@@ -66,6 +85,7 @@ export class ListContainerComponent implements OnInit {
 
   currentView(currentList: ListComponent): void{
     this.flagged.position = 0;
+    this.today.position = 0;
     if(this.view != null){
       this.view.setViewFalse();
       this.view = currentList;

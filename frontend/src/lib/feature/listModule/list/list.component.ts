@@ -7,6 +7,7 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
+import { Reminder } from 'src/lib/data-access/models/reminder';
 import { BackendService } from 'src/lib/data-access/service/backend.service';
 import { List } from '../../../data-access/models/list';
 
@@ -21,6 +22,7 @@ export class ListComponent implements AfterViewInit {
 
   @Output() clickDeleteEvent = new EventEmitter<number>();
   @Output() changeViewEvent = new EventEmitter<ListComponent>();
+  @Output() update_TF_Event = new EventEmitter<Reminder[]>();
 
   @ViewChild('myInput') myInput: ElementRef;
 
@@ -36,7 +38,6 @@ export class ListComponent implements AfterViewInit {
   }
 
   clickEvent(): void {
-    console.log("Delete Click erkannt")
     this.clickDeleteEvent.emit(this.listObject.id);
   }
 
