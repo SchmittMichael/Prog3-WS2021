@@ -1,5 +1,4 @@
 #include "Endpoint.hpp"
-
 #include <iostream>
 
 using namespace ReminderApp::Api;

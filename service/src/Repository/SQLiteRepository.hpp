@@ -8,7 +8,7 @@
 
 namespace ReminderApp {
 namespace Repository {
-
+  
 class SQLiteRepository : public RepositoryIf {
   private:
     sqlite3 *database;
@@ -48,8 +48,6 @@ class SQLiteRepository : public RepositoryIf {
 
     static inline std::string const listContainerName = "My Reminder";
     static inline int const INVALID_ID = -1;
-
-
     static std::string const databaseFile;
 };
 // test

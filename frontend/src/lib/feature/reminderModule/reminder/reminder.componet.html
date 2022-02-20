@@ -29,7 +29,7 @@
     value = "{{ this.reminderObject.date}}"
     (change)="editDate($event)"
     >
-  </div><!--changed second getTitle() to getDate() + changed second editName() to editDate()-->
+  </div>
 
   <div class="flag"  (click)="editFlag()">
   <div id="redflag" title="UNFLAG REMINDER" *ngIf= "this.reminderObject.flag">

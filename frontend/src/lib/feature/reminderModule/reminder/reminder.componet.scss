@@ -4,7 +4,6 @@
   height: 5%;
   margin-left: 5%;
   height: 70px;
-  //background-color: hsl(#444444);
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -118,7 +117,7 @@
   background: url('../../../../assets/Flagnorm.png') no-repeat;
   width: 40px;
   height: 40px;
-  outline: 2px solid transparent; //make black for checkbox
+  outline: 2px solid transparent;
   background-size: 90%;
 }
 
@@ -127,7 +126,7 @@
   background: url('../../../../assets/Flagselec.png') no-repeat;
   width: 40px;
   height: 40px;
-  outline: 2px solid transparent; //make black for checkbox
+  outline: 2px solid transparent;
   background-size: 90%;
 }
 
@@ -170,8 +169,6 @@
   /* color: red; */
   opacity: 0.8;
 }
-
-/* https://web.dev/prefers-reduced-motion/#(bonus)-forcing-reduced-motion-on-all-websites */
 
 @keyframes glitch {
   0% {

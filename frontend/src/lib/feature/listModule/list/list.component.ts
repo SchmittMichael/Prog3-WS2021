@@ -7,8 +7,8 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import { Reminder } from 'src/lib/data-access/models/reminder';
-import { BackendService } from 'src/lib/data-access/service/backend.service';
+import { Reminder } from '../../../data-access/models/reminder';
+import { BackendService } from '../../../data-access/service/backend.service';
 import { List } from '../../../data-access/models/list';
 
 @Component({

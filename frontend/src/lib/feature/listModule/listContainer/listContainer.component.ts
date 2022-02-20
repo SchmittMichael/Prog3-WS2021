@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { List } from '../../../data-access/models/list';
 import { ListContainer } from '../../../data-access/models/listContainer';
 import { ListComponent } from '../list/list.component';
 import { BackendService } from '../../../data-access/service/backend.service'
-import { Reminder } from 'src/lib/data-access/models/reminder';
+import { Reminder } from '../../../data-access/models/reminder';
 
 @Component({
   selector: 'listContainer',
@@ -25,15 +25,14 @@ export class ListContainerComponent implements OnInit {
     this.lcObject = {name:"Offline Reminder", lists:[]};
     this.backendService.loadListContainer().subscribe( (lc:ListContainer) => (this.lcObject = lc));
 
-    this.flagged = {name:"OfflineFlagged", reminders:[]}
+    this.flagged = {name:"Offline Flagged", reminders:[]}
     this.backendService.loadFlaggedReminders().subscribe( (flagged:List) => this.flagged = flagged);
 
-    this.today = {name:"OfflineToday", reminders:[]}
+    this.today = {name:"Offline Today", reminders:[]}
     this.backendService.loadTodayReminders().subscribe( (today:List) => this.today = today);
   }
 
   createNewList(): void {
-    console.log(this.lcObject.name)
     let newList: List = { name: "", reminders:[]};
     this.newListIndex = this.lcObject.lists.push(newList) - 1;
 

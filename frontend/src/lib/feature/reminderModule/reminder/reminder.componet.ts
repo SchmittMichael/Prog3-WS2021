@@ -7,7 +7,7 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import { BackendService } from 'src/lib/data-access/service/backend.service';
+import { BackendService } from '../../../data-access/service/backend.service';
 import { Reminder } from '../../../data-access/models/reminder';
 
 @Component({
